@@ -33,5 +33,5 @@ cout << "Total: " << sum << endl;
 
 
 
-ijij
+
 }

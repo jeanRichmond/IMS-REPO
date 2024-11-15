@@ -1,0 +1,43 @@
+An inventory management system (IMS) is software for:
+tracking inventory, 
+controlling stock levels, 
+handling orders, 
+sales, 
+returns, 
+reports, 
+and more. 
+It helps automate the previously manual processes and increases efficiency, accuracy, and speed of operations.
+
+
+
+
+Menu 
+1. customer
+2. store
+3. exit program
+
+case 1(customer)
+1. Buy 
+2. Order/pre-order
+3. cashier
+4. back //end loop back to menu
+
+  case 1 Buy 
+
+  case 2 Order/pre-order
+
+  case 3 Cashier
+
+  case 4 Back
+
+
+
+case 2(store)
+1. add product 
+2. show inventory
+3. product sales
+4. restock
+5. edit inventory
+6. back //end loop back to menu
+
+  
