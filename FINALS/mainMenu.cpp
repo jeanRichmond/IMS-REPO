@@ -10,9 +10,10 @@ vector <string> shorts = {"Shorts 1", "Shorts 2", "Shorts 3"};
 char productSize[] = {'S', 'M', 'L'};
 
 int main()
-{
+{ 
   cout << "\n=========[ INVENTORY MANAGEMENT SYSTEM ]=========\n\n";
   cout << "==================[ A D M I N ]==================\n\n";
+
 
 
   while (true)
@@ -21,10 +22,10 @@ int main()
     cout<<"[1] CUSTOMER\n";
     cout<<"[2] INVENTORY\n";
     cout<<"[3] EXIT PROGRAM\n";
-    cout << "\n[ ENTER INPUT ]: ";
+    cout << "\n[ENTER INPUT]: ";
     while (!(cin >> choice))
     {
-      cout << "Error: Number only\nEnter again: ";
+      cout << "\n[ERROR]: (NUMBERS ONLY)\n\n{ENTER AGAIN]: ";
       cin.clear();
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
@@ -55,10 +56,10 @@ int main()
         while (loopAgain == true)
         {
           int choice; // local
-          cout << "\n[ #ENTER INPUT ]: ";
+          cout << "\n[ENTER INPUT]: ";
           while (!(cin >> choice))
           {
-            cout << "Error: Number only\nEnter again: ";
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
           }
@@ -80,7 +81,7 @@ int main()
             break;
           case 7: loopAgain = false;
             break;        
-          default: cout<<"Error: Please between 1 and 7";
+          default: cout<<"\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
             
           }            
 
@@ -91,8 +92,9 @@ int main()
       break;
     }
     default:
-      cout << "Error: Please between 1 and 2";
+      cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 2)\n\n";
     
     }
   }
+  cout << "HELLO JHERVIN HHAHAHAHAHAHAHAHAHAHAHA" << endl;
 }
