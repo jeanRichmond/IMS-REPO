@@ -50,6 +50,19 @@ case 2(store)
 
 
 2. show inventory
+    # Cat1       name   size   price stock
+    1.T-shirt    item1  small  1     10
+    2.T-shirt    item2  medium 2     20
+    3.T-shirt    item3  large  3     30
+      Cat2         
+    4.Hooides    item1  small  1     10
+    5.Hooides    item2  medium 2     20
+    6.Hooides    item3  large  3     30
+      Cat3         
+    7.Shorts     item1  small  1     10
+    8.Shorts     item2  medium 2     20
+    9.Shorts     item3  large  3     30
+
 3. product sales
 4. restock
 5. edit inventory

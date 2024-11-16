@@ -1,1 +1,1 @@
-system("cls");
+E
