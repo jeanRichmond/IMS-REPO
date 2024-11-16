@@ -1,11 +1,12 @@
 #include "customer.cpp"
 #include "inventory.cpp"
-#include <iostream>
-#include <vector>
-#include <limits>
+#include <bits/stdc++.h>
 using namespace std;
+
 string category[] = { "T-shirt", "Hoodies", "Shorts" };
-vector <string> product = {"Epok nation", "Pag-ibig na walang hanggan ni epok", "basta epok, pokpok"};
+vector <string> thisrts = {"T-shirt 1", "T-shirt 2", "T-shirt 3"};
+vector <string> hoodies = {"Hoodies 1", "Hoodies 2", "Hoodies 3"};
+vector <string> shorts = {"Shorts 1", "Shorts 2", "Shorts 3"};
 char productSize[] = {'S', 'M', 'L'};
 
 int main()
@@ -37,6 +38,7 @@ int main()
       bool loopAgain = true;
       while (loopAgain == true)
       {
+        
         cout << "\n=========================================";
         cout << "\n----------[ I N V E N T O R Y ]----------\n";
         cout << "=========================================\n\n";
@@ -48,19 +50,23 @@ int main()
         cout << "[5] RESTOCK\n";
         cout << "[6] EDIT INVENTORY\n";
         cout << "[7] EXIT\n";
+        // system("cls");
+        bool loopAgain = true;
         while (loopAgain == true)
         {
           int choice; // local
-          cout << "\n[ ENTER INPUT ]: ";
+          cout << "\n[ #ENTER INPUT ]: ";
           while (!(cin >> choice))
           {
             cout << "Error: Number only\nEnter again: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
           }
+          
           switch (choice)
           {
           case 1: addProduct();
+          loopAgain = false;
             break;
           case 2: displayInventory ();
             break;

@@ -1,2 +1,1 @@
-
-        cout<<"5. Restock\n";
+system("cls");
