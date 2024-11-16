@@ -11,6 +11,7 @@ void displayInventory () {
 
 void productSales () {
     cout<<"product sales\n";
+    cout << ""
 }
 
 void salesHistory () {

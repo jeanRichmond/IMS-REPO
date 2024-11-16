@@ -4,23 +4,23 @@
 #include <vector>
 #include <limits>
 using namespace std;
-vector <string> category = { "T-shirt", "Hoodies", "Shorts" };
+string category[] = { "T-shirt", "Hoodies", "Shorts" };
 vector <string> product = {"Epok nation", "Pag-ibig na walang hanggan ni epok", "basta epok, pokpok"};
 char productSize[] = {'S', 'M', 'L'};
+
 int main()
 {
-
-
-
+  cout << "\n=========[ INVENTORY MANAGEMENT SYSTEM ]=========\n\n";
+  cout << "==================[ A D M I N ]==================\n\n";
 
 
   while (true)
   {
     int choice;
-    cout<<"1. Customer\n";
-    cout<<"2. Inventory\n";
-    cout<<"3. Exit program\n";
-    cout << "Enter input: ";
+    cout<<"[1] CUSTOMER\n";
+    cout<<"[2] INVENTORY\n";
+    cout<<"[3] EXIT PROGRAM\n";
+    cout << "\n[ ENTER INPUT ]: ";
     while (!(cin >> choice))
     {
       cout << "Error: Number only\nEnter again: ";
@@ -37,18 +37,21 @@ int main()
       bool loopAgain = true;
       while (loopAgain == true)
       {
-        cout << "INVENTORY\n"<< endl;
-        cout << "1. Add Product\n";
-        cout << "2. Display Inventory\n";
-        cout << "3. Product Sales\n";
-        cout << "4. Sales history\n";
-        cout << "5. Restock\n";
-        cout << "6. Edit Inventory\n";
-        cout << "7. Exit\n";
+        cout << "\n=========================================";
+        cout << "\n----------[ I N V E N T O R Y ]----------\n";
+        cout << "=========================================\n\n";
+
+        cout << "[1] ADD PRODUCT\n";
+        cout << "[2] DISPLAY INVENTORY\n";
+        cout << "[3] PRODUCT SALES\n";
+        cout << "[4] SALES HISTORY\n";
+        cout << "[5] RESTOCK\n";
+        cout << "[6] EDIT INVENTORY\n";
+        cout << "[7] EXIT\n";
         while (loopAgain == true)
         {
           int choice; // local
-          cout << "Enter input: ";
+          cout << "\n[ ENTER INPUT ]: ";
           while (!(cin >> choice))
           {
             cout << "Error: Number only\nEnter again: ";

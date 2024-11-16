@@ -34,6 +34,21 @@ case 1(customer)
 
 case 2(store)
 1. add product 
+{
+   add product 
+    category:
+    1. 2. 3. 4. 5. 
+    1. tshirt
+      name: jhervin ex //array price[]
+      size: s //array size[]
+      price: 100 //array price[]
+      stock: 10
+    press any key to con... 
+}
+   
+
+
+
 2. show inventory
 3. product sales
 4. restock
