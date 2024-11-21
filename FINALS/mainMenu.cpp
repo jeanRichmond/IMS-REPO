@@ -65,7 +65,7 @@ int main()
     } 
     case 2: order ();
       break;
-    case 3: cashier ()  ; 
+    case 3: cashier (); 
       break;
     case 4: ;
       break;
