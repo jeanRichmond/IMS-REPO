@@ -1,31 +1,48 @@
-#include "customer.cpp"
-#include "inventory.cpp"
+#include "customer1.cpp"
+#include "inventory2.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
+string category[] = {"Tops", "Bottoms", "Accessories"};
+//string size[] = {"Small", "Medium", "Large"};
+vector<string> tops        = {"Polo", "T-Shirt", "Hoody"}; //choice = 1
+vector<string> bottoms     = {"Shorts", "Skirts", "Sweat pants", "Denim"};
+vector<string> accessories = {"Cap", "Panyo"};
+//attributes for tops q
+vector<float> priceSmallTops   = {100.00, 100.00, 100.00};          //priceSmallTops
+vector<float> priceMediumlTops = {150.00, 150.00, 150.00};          //priceMediumlTops
+vector<float> priceLargeTops   = {200.00, 200.00, 200.00};          //priceLargeSizeTops[choice] for calculation ---> qty 3    
+                                                                    
+vector<int> stockSmallSizeTops     = {100, 100, 100};
+vector<int> stockMediumlSizeTops   = {200, 200, 200};
+vector<int> stockLargeSizeTops     = {300, 300, 300};
+//attributes for bottoms
+vector<float> priceSmallBottoms   = {100.00, 100.00, 100.00, 100.00};
+vector<float> priceMediumlBottoms = {150.00, 150.00, 150.00, 150.00};
+vector<float> priceLargeBottoms   = {200.00, 200.00, 200.00, 200.00};
+vector<int> stockSmallSizeBottoms     = {100, 100, 100, 100};
+vector<int> stockMediumlSizeBottoms   = {200, 200, 200, 200};
+vector<int> stockLargeSizeBottoms     = {300, 300, 300, 300};
+//attributes for accessories
+vector<float> priceSmallAccessories   = {100.00, 100.00, 100.00};
+vector<float> priceMediumlAccessories = {150.00, 150.00, 150.00};
+vector<float> priceLargeAccessories   = {200.00, 200.00, 200.00};
+vector<int> stockSmallSizeAccessories     = {100, 100};// isang price lang ata to pero maya na to
+vector<int> stockMediumlSizeAccessories   = {200, 200};// ito 
+vector<int> stockLargeSizeAccessories     = {300, 300};// at ito ay di na applicable
 
 
-    string category[] = { "T-shirt", "Hoodies", "Shorts" };
-    string size[] = { "Small", "Medium", "Large" };
-        vector <string> tshirts = {"Fila", "Adidas", "Nike"};
-        vector <string> hoodies = {"GAP", "Roadster", "Campus sutra"};
-        vector <string> shorts = {"Epok", "Lowoy 5 ltrs", "Tasbu"};
-            vector <float> priceSmallSize = {1.00, 11.00, 111.00};
-            vector <float> priceMediumlSize = {2.00, 22.00, 222.00};
-            vector <float> priceLargeSize = {3.00, 33.00, 333.00};
-                vector <int> stockSmallSize = {1, 11, 111};
-                vector <int> stockMediumlSize = {2, 22, 222};
-                vector <int> stockLargeSize = {3, 33, 333};
 int main()
-{ 
+{
+
   cout << "\n=========[ INVENTORY MANAGEMENT SYSTEM ]=========\n\n";
-  cout << "==================[ A D M I N ]==================\n\n";
+  cout << "==================[ W E L C O M E ]==================\n\n";
   while (true)
   {
     int choice;
-    cout<<"[1] CUSTOMER\n";
-    cout<<"[2] INVENTORY\n";
-    cout<<"[3] EXIT PROGRAM\n";
+    cout << "[1] CUSTOMER\n";
+    cout << "[2] INVENTORY\n";
+    cout << "[3] EXIT PROGRAM\n";
     cout << "\n[ENTER INPUT]: ";
     while (!(cin >> choice))
     {
@@ -38,53 +55,56 @@ int main()
     case 1:
     {
       bool loopAgain = true;
-    while (loopAgain == true) {
+      while (loopAgain == true)
+      {
 
-      cout << "Buy\n";
-      cout << "Order/Pre-order\n";
-      cout << "Cashier\n";
-      cout << "Back\n";
+        cout << "[1] BUY\n";
+        cout << "[2] ORDER\n";
+        cout << "[3] CASHIER\n";
+        cout << "[4] BACK\n";
 
-      int choice; // local
-     cout << "\n[ENTER INPUT]: ";
-     while (!(cin >> choice))
-    {
-      cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
-      cin.clear();
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        int choice; // local
+        cout << "\n[ENTER INPUT]: ";
+        while (!(cin >> choice))
+        {
+          cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+          cin.clear();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        switch (choice)
+        {
+        case 1:
+        {
+          buy(category, tops, bottoms, accessories, 
+            priceSmallTops, priceMediumlTops, priceLargeTops, 
+            stockSmallSizeTops, stockMediumlSizeTops, stockLargeSizeTops,
+            priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
+            stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms,
+            priceSmallAccessories,priceMediumlAccessories,priceLargeAccessories,
+            stockSmallSizeAccessories,stockMediumlSizeAccessories,stockLargeSizeAccessories);
+          break;
+        }
+        case 2:
+          order();
+          break;
+        case 3:
+          cashier(); 
+          break;
+        case 4:;
+          break;
+
+        default:
+          cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
+        }
+      }
     }
-
-
-
-    switch (choice)
-    {
-    case 1:
-    {
-    buy(category, tshirts, hoodies, shorts);
-      break;
-    } 
-    case 2: order ();
-      break;
-    case 3: cashier (); 
-      break;
-    case 4: ;
-      break;
-
-         
-    default: cout<<"\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
-      
-    }   
-
-
-    
-    }
-    }
-      break;
+    break;
     case 2:
     {
       bool loopAgain = true;
       while (loopAgain == true)
       {
+        system("cls");
         cout << "\n=========================================";
         cout << "\n----------[ I N V E N T O R Y ]----------\n";
         cout << "=========================================\n\n";
@@ -99,55 +119,69 @@ int main()
         {
           int choice; // local
           cout << "\n[ENTER INPUT]: ";
-          while (!(cin >> choice))
+          while (!(cin >> choice))  
+        
           {
             cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
           }
-          
+
           switch (choice)
           {
-          case 1: addProduct();
+          case 1:
+          {
+            system("cls");
+            addProduct();
             break;
-          case 2:
-           {
-            int cat1 = ::tshirts.capacity(); 
-            int cat2 = ::hoodies.capacity();
-            int cat3 = ::shorts.capacity();
-            displayInventory (cat1,cat2,cat3, category);
-              break;
           }
-          case 3: productSales (); 
+          case 2: //thats a lot of crap
+          {
+            system("cls");
+            displayInventory(tops, bottoms, accessories, 
+            priceSmallTops, priceMediumlTops, priceLargeTops, 
+            stockSmallSizeTops, stockMediumlSizeTops, stockLargeSizeTops,
+            priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
+            stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms,
+            priceSmallAccessories,priceMediumlAccessories,priceLargeAccessories,
+            stockSmallSizeAccessories,stockMediumlSizeAccessories,stockLargeSizeAccessories);
+            loopAgain = false;
             break;
-          case 4: salesHistory ();
-            break;
-          case 5: restock ();
-            break;
-          case 6: editHistory ();
-            break;
-          case 7: loopAgain = false;
-            break;        
-          default: cout<<"\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
             
-          }            
-
-
+          }
+          case 3:
+            productSales();
+            break;
+          case 4:
+            salesHistory();
+            break;
+          case 5:
+            restock();
+            break;
+          case 6:
+            editHistory();
+            break;
+          case 7:
+            loopAgain = false;
+            loopAgain = false;
+            break;
+          default:
+            cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
+          }
         }
       }
 
       break;
     }
-    
-    case 3: 
+
+    case 3:
     {
-      cout<<"Exiting program...";
+      cout << "Exiting program...";
       return 0;
     }
     default:
-      cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 2)\n\n";
-    
+    system("cls");
+      cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 3)\n\n";
     }
   }
-  cout << "HELLO JHERVIN HHAHAHAHAHAHAHAHAHAHAHA" << endl;
 }

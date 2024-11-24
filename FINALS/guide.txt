@@ -69,3 +69,49 @@ case 2(store)
 6. back //end loop back to menu
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+  customer buy output
+          // if (i == 0) { 
+        //     for (int j = 0; j < tops.size(); j++) {
+        //         cout << "  " << tops[j] << endl;
+        //     }
+        //     cout << endl;
+        // } else if (i == 1) { 
+        //     for (int j = 0; j < bottoms.size(); j++) {
+        //         cout << "  " << bottoms[j] << endl;
+        //     } 
+        //     cout << endl;
+
+        // } else if (i == 2) { 
+        //     for (int j = 0; j < accessories.size(); j++) {
+        //         cout << "  " << accessories[j] << endl;
+        //     }
+        //     cout << endl;
+        // }
+
+
+
+        price
+        stock dapat mabawasan
+
+        choice = 1;
+        priceLargeSizeTops[choice - 1] * qty = total
+        stockLargeSizeTops[choice - 1]-=qty; 
+
+
+        for(){
+          if(choice1 == i){
+            
+          }
+        }
