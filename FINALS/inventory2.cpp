@@ -100,7 +100,43 @@ void displayInventory( //done... atleast for now
     cout<<"press any key to continue then hit enter..."; 
     cin>> anything; 
 }
+void login()
+{   
+    string adminUsername = "123";
+    string adminPassword = "123";
 
+    string user;
+    string pass;
+    bool loginTrue = true;
+    int maxAttempt = 3;
+    int attempt = 0;
+    bool loginAttempt = false;
+
+    while (loginTrue && attempt <= maxAttempt){
+    
+    cout << "\n======<<<<[ T H R I F T  C L Ø T H I N G  S T O R E ]>>>>======\n\n";
+    cout << "ENTER USERNAME: ";
+    getline(cin,user);
+
+    cout <<"ENTER PASSWORD: ";
+    getline(cin,pass);  
+
+   
+    if (adminUsername == user && adminPassword == pass) { //admin access
+        cout << "\nLOGIN SUCCESSFULLY\n";
+        loginTrue = false;
+    } else{    
+        cout << "\nLOGIN FAILED. PLEASE TRY AGAIN!\n";
+    }  
+    attempt++;
+     if (attempt >= maxAttempt){
+        cout << "\nTOO MANY ATTEMPTS. FAILED TO LOGIN. PLEASE TRY AGAIN!\n\n";
+        bool loginAttempt = true;
+        break;
+    }
+    }
+
+}
 void productSales()
 {
     cout << "product sales\n";

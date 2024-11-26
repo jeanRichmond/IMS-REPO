@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string category[] = {"Tops", "Bottoms", "Accessories"};
+string category[] = {"TOPS", "BOTTOMS", "ACCESSORIES"};
 //string size[] = {"Small", "Medium", "Large"};
 vector<string> tops        = {"Polo", "T-Shirt", "Hoody"}; //choice = 1
 vector<string> bottoms     = {"Shorts", "Skirts", "Sweat pants", "Denim"};
@@ -12,7 +12,7 @@ vector<string> accessories = {"Cap", "Panyo"};
 vector<float> priceSmallTops   = {100.00, 100.00, 100.00};          //priceSmallTops
 vector<float> priceMediumlTops = {150.00, 150.00, 150.00};          //priceMediumlTops
 vector<float> priceLargeTops   = {200.00, 200.00, 200.00};          //priceLargeSizeTops[choice] for calculation ---> qty 3    
-                                                                    
+                                 
 vector<int> stockSmallSizeTops     = {100, 100, 100};
 vector<int> stockMediumlSizeTops   = {200, 200, 200};
 vector<int> stockLargeSizeTops     = {300, 300, 300};
@@ -29,12 +29,12 @@ vector<float> priceMediumlAccessories = {150.00, 150.00, 150.00};
 vector<float> priceLargeAccessories   = {200.00, 200.00, 200.00};
 vector<int> stockSmallSizeAccessories     = {100, 100};// isang price lang ata to pero maya na to
 vector<int> stockMediumlSizeAccessories   = {200, 200};// ito 
-vector<int> stockLargeSizeAccessories     = {300, 300};// at ito ay di na applicable
+vector<int> stockLargeSizeAccessories     = {300, 300, 300};// at ito ay di na applicable
 
 
 int main()
 {
-
+login();
   cout << "\n=========[ INVENTORY MANAGEMENT SYSTEM ]=========\n\n";
   cout << "==================[ W E L C O M E ]==================\n\n";
   while (true)
@@ -58,7 +58,7 @@ int main()
       while (loopAgain == true)
       {
 
-        cout << "[1] BUY\n";
+        cout << "\n[1] BUY\n";
         cout << "[2] ORDER\n";
         cout << "[3] CASHIER\n";
         cout << "[4] BACK\n";
