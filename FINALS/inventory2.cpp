@@ -1,9 +1,90 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
+#define YELLOW "\033[33m"
+#define BLACK "\033[30m"
+#define MAGENTA "\033[35m"
+#define CYAN "\033[36m"
 
+void login() // authentications
+{ 
+    string adminUsername = "123";
+    string adminPassword = "123";
+    string emUsername = "456";
+    string emPassword = "456";
+
+    string user;
+    string pass;
+    bool loginTrue = true;
+    int maxAttempt = 3;
+    int attempt = 0;
+
+    while (loginTrue && attempt <= maxAttempt){
+    cout << BLACK <<"=======================================================================\n";
+    cout << "======>>>><<<<[ "<< RED << "T "
+     << GREEN << "H " 
+     << BLUE << "R " 
+     << YELLOW << "I " 
+     << MAGENTA << "F "
+     << CYAN << "T  "
+     << BLACK << "C "
+     << RED << "L "
+     << GREEN << "O "
+     << BLUE << "T " 
+     << YELLOW << "H "
+     << MAGENTA << "I "
+     << CYAN << "N "
+     << BLACK << "G  "
+     << RED << "S " 
+     << GREEN << "T "
+     << BLUE << "O "
+     << YELLOW << "R "
+     << MAGENTA "E " 
+     << BLACK << "]>>>><<<<======\n" << RESET;
+    cout << BLACK << "=======================================================================\n\n";
+
+    cout << BLACK << "ENTER USERNAME: " << RESET;
+    getline(cin >> ws, user);
+
+    cout << BLACK << "ENTER PASSWORD: " << RESET;
+    getline(cin >> ws,pass);  
+
+   
+    if (adminUsername == user && adminPassword == pass) { //admin access
+        cout << GREEN << "\nLOGIN SUCCESSFULLY\n" << RESET;
+        loginTrue = false;
+    } else {    
+        cout << RED << "\nLOGIN FAILED. PLEASE TRY AGAIN!. (ATTEMPTS # " << attempt + 1 << ")\n" << RESET;
+        attempt++;
+    }  
+    
+     if (attempt >= maxAttempt){
+        cout << "\nTOO MANY ATTEMPTS. FAILED TO LOGIN. PLEASE TRY AGAIN!\n\n";
+        loginTrue = false;
+        exit(0);
+        
+    }
+    }
+}
 void addProduct()
 {
+    string adminPass = "123";
+    string pass;   
     cout << "addProduct\n";
+    while(1){
+        cout<<"Enter password: ";
+        cin>> pass;
+
+    if(pass != adminPass){
+        cout<< "Wrong password";
+        break;
+    }
+    }
+    
+    
     while(1){
         int choice;
         cout<<"Which category: "; 
@@ -100,43 +181,7 @@ void displayInventory( //done... atleast for now
     cout<<"press any key to continue then hit enter..."; 
     cin>> anything; 
 }
-void login()
-{   
-    string adminUsername = "123";
-    string adminPassword = "123";
 
-    string user;
-    string pass;
-    bool loginTrue = true;
-    int maxAttempt = 3;
-    int attempt = 0;
-    bool loginAttempt = false;
-
-    while (loginTrue && attempt <= maxAttempt){
-    
-    cout << "\n======<<<<[ T H R I F T  C L Ø T H I N G  S T O R E ]>>>>======\n\n";
-    cout << "ENTER USERNAME: ";
-    getline(cin,user);
-
-    cout <<"ENTER PASSWORD: ";
-    getline(cin,pass);  
-
-   
-    if (adminUsername == user && adminPassword == pass) { //admin access
-        cout << "\nLOGIN SUCCESSFULLY\n";
-        loginTrue = false;
-    } else{    
-        cout << "\nLOGIN FAILED. PLEASE TRY AGAIN!\n";
-    }  
-    attempt++;
-     if (attempt >= maxAttempt){
-        cout << "\nTOO MANY ATTEMPTS. FAILED TO LOGIN. PLEASE TRY AGAIN!\n\n";
-        bool loginAttempt = true;
-        break;
-    }
-    }
-
-}
 void productSales()
 {
     cout << "product sales\n";

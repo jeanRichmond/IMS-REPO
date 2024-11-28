@@ -31,18 +31,30 @@ vector<int> stockSmallSizeAccessories     = {100, 100};// isang price lang ata t
 vector<int> stockMediumlSizeAccessories   = {200, 200};// ito 
 vector<int> stockLargeSizeAccessories     = {300, 300, 300};// at ito ay di na applicable
 
+//total & subtotals
+double subTotal = 0;
+double total = 0;
+
+//bools
+bool isAdmin = false;
+bool isEmployer = false;
 
 int main()
 {
+start:
+
 login();
-  cout << "\n=========[ INVENTORY MANAGEMENT SYSTEM ]=========\n\n";
-  cout << "==================[ W E L C O M E ]==================\n\n";
+
+
+  cout << "\n=========[ " << RED << "I N V E N T O R Y  "<< BLUE << "M A N A G E M E N T  "<< MAGENTA << "S Y S T E M" << RESET << " ]=========\n\n";
+  cout << "==================[ " << YELLOW << "W E L C O M E" << RESET << " ]==================\n\n";
   while (true)
   {
     int choice;
     cout << "[1] CUSTOMER\n";
     cout << "[2] INVENTORY\n";
-    cout << "[3] EXIT PROGRAM\n";
+    cout << "[3] LOG-OUT\n";
+    cout << "[4] EXIT PROGRAM\n";
     cout << "\n[ENTER INPUT]: ";
     while (!(cin >> choice))
     {
@@ -57,11 +69,11 @@ login();
       bool loopAgain = true;
       while (loopAgain == true)
       {
-
         cout << "\n[1] BUY\n";
         cout << "[2] ORDER\n";
         cout << "[3] CASHIER\n";
         cout << "[4] BACK\n";
+      
 
         int choice; // local
         cout << "\n[ENTER INPUT]: ";
@@ -81,7 +93,7 @@ login();
             priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
             stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms,
             priceSmallAccessories,priceMediumlAccessories,priceLargeAccessories,
-            stockSmallSizeAccessories,stockMediumlSizeAccessories,stockLargeSizeAccessories);
+            stockSmallSizeAccessories,stockMediumlSizeAccessories,stockLargeSizeAccessories,subTotal,total);
           break;
         }
         case 2:
@@ -92,6 +104,7 @@ login();
           break;
         case 4:;
           break;
+          
 
         default:
           cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
@@ -173,8 +186,15 @@ login();
 
       break;
     }
-
     case 3:
+    {
+      string anything; 
+      cout<<"Enter any keys to continue";
+      cin >> anything;
+      goto start;
+      break;
+    }
+    case 4:
     {
       cout << "Exiting program...";
       return 0;
