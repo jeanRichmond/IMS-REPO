@@ -34,7 +34,9 @@ vector<int> stockLargeSizeAccessories     = {300, 300, 300};// at ito ay di na a
 
 int main()
 {
+  
 login();
+
   cout << "\n=========[ INVENTORY MANAGEMENT SYSTEM ]=========\n\n";
   cout << "==================[ W E L C O M E ]==================\n\n";
   while (true)
@@ -109,12 +111,12 @@ login();
         cout << "\n----------[ I N V E N T O R Y ]----------\n";
         cout << "=========================================\n\n";
         cout << "[1] ADD PRODUCT\n";
-        cout << "[2] DISPLAY INVENTORY\n";
-        cout << "[3] PRODUCT SALES\n";
-        cout << "[4] SALES HISTORY\n";
-        cout << "[5] RESTOCK\n";
-        cout << "[6] EDIT INVENTORY\n";
-        cout << "[7] EXIT\n";
+        cout << "[2] DISPLAY INVENTORY\n"; //employee
+        cout << "[3] PRODUCT SALES\n";  //employee
+        cout << "[4] SALES HISTORY\n";  //employee
+        cout << "[5] RESTOCK\n";  
+        cout << "[6] EDIT INVENTORY\n"; 
+        cout << "[7] EXIT\n"; //employee
         while (loopAgain == true)
         {
           int choice; // local

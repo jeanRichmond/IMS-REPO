@@ -115,3 +115,9 @@ case 2(store)
             
           }
         }
+
+
+
+
+user: admin
+password: aksjgfiugafoieq
