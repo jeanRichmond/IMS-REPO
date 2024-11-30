@@ -158,8 +158,7 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
                     subTotal = (pr9[size3 -1] * quantity);
                     (st9[size3 -1] - quantity); 
                     total += subTotal;
-                    cout << t[choice3 -1] << " | " << "Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl; 
-                    cout << total <<endl;                   
+                    cout << t[choice3 -1] << " | " << "Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;                  
                 }
             }
         }
@@ -175,11 +174,14 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
 
 void order () {
     
+    cout << "Order Area" << endl;
 
 
 }
 void cashier () {
     
+    cout << "Cashier Area" << endl;
+
 }
 
 
