@@ -39,6 +39,13 @@ double total = 0;
 bool isAdmin = false;
 bool isEmployer = false;
 
+
+//vectors for storing new elements
+vector<string> selectedItems;
+vector<string> selectedSizes;
+vector<int> selectedQuantities;
+vector<double> selectedPrices;
+
 int main()
 {
 start:
@@ -48,6 +55,8 @@ login();
 
   cout << "\n=========[ " << RED << "I N V E N T O R Y  "<< BLUE << "M A N A G E M E N T  "<< MAGENTA << "S Y S T E M" << RESET << " ]=========\n\n";
   cout << "==================[ " << YELLOW << "W E L C O M E" << RESET << " ]==================\n\n";
+
+
   while (true)
   {
     int choice;
@@ -66,6 +75,7 @@ login();
     {
     case 1:
     {
+     
       bool loopAgain = true;
       while (loopAgain == true)
       {
@@ -93,16 +103,20 @@ login();
             priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
             stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms,
             priceSmallAccessories,priceMediumlAccessories,priceLargeAccessories,
-            stockSmallSizeAccessories,stockMediumlSizeAccessories,stockLargeSizeAccessories,subTotal,total);
+            stockSmallSizeAccessories,stockMediumlSizeAccessories,stockLargeSizeAccessories,subTotal,total,
+            
+            selectedItems,selectedSizes,selectedQuantities, selectedPrices);
           break;
         }
         case 2:
           order();
           break;
         case 3:
-          cashier(); 
+          cashier(selectedItems,selectedSizes,selectedQuantities, selectedPrices); 
           break;
-        case 4:;
+        case 4:
+        loopAgain = false;
+        ;
           break;
           
 
