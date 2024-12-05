@@ -54,7 +54,7 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
            // c out << j + 1 << ". " << t[j]  << " " << "(Extra-Small: " << endl;
            
         //    Extra-Small\n2.Small\n3.Medium\n4.Large\n5.X-Large\n6.XX-Large
-       cout << "Tops:" << endl;
+       cout << "TOPS:\n" << endl;
        cout << setw(3) << left << "#" << setw(1)
          << setw(20) << left << "NAME" << setw(1)
          
@@ -65,11 +65,12 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
          << setw(10) << left << "(XL)PRICE " << setw(1) << setw(15) << left << setw(1)
          << setw(10) << left << "(XXL)PRICE " << setw(1) << setw(15) << left;
             
-          
+          cout << endl;
+
            for (int j = 0; j < t.size(); j++) {
            cout << endl << setw(3) << left << j + 1 << setw(1) 
              << setw(20) << left << t[j] << setw(1)
-            << setw(10) << left << prx1[j] << setw(1) << setw(15) << left  << setw(1)
+            << setw(10) << left << prx1[j] << setw(1) << setw(10) << left  << setw(1)
              << setw(10) << left << pr1[j] << setw(1) << setw(15) << left << setw(1)
              << setw(10) << left << pr2[j] << setw(1) << setw(15) << left << setw(1)
              << setw(10) << left << pr3[j] << setw(1) << setw(15) << left << setw(1)
@@ -104,45 +105,46 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
                 if (size1 == 1) { //for xtra-small
                     sizeStr = "Extra-Small";
                     subTotal = (prx1[size1 -1] * quantity);
-                    (stx1[size1 -1] - quantity); 
+                    (stx1[size1 -1] -= quantity); 
                     total += subTotal;
                     cout << t[choice1 -1] << " | " << "Extra-Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
                 } 
                 if (size1 == 2) { //for small
                     sizeStr = "Small";
                     subTotal = (pr1[size1 -1] * quantity);
-                    (st1[size1 -1] - quantity); 
+                    (st1[size1 -1] -= quantity); 
                     total += subTotal;
                     cout << t[choice1 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
                 } 
                 if (size1 == 3) { //for medium
                     sizeStr = "Medium";
                     subTotal = (pr2[size1 -1] * quantity);
-                    (st2[size1 -1] - quantity);   
+                    (st2[size1 -1] -= quantity);   
                     total += subTotal;
                     cout << t[choice1 -1] << " | " << "Medium" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl; 
                 }
                 if (size1 == 4) { // for large
                    sizeStr = "Large";
                    subTotal = (pr3[size1 -1] * quantity);       
-                   (st3[size1 -1] - quantity);       
+                   (st3[size1 -1] -= quantity);       
                    total += subTotal;
                    cout << t[choice1 -1] << " | " << "Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;                    
                 }
                 if (size1 == 5) { // for Xlarge
                    sizeStr = "X-Large";
                    subTotal = (prx3[size1 -1] * quantity);       
-                   (stx3[size1 -1] - quantity);       
+                   (stx3[size1 -1] -= quantity);       
                    total += subTotal;
                    cout << t[choice1 -1] << " | " << "X-Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;                    
                 }
                    if (size1 == 6) { // for XXlarge
                    sizeStr = "XX-Large";
                    subTotal = (prxx3[size1 -1] * quantity);       
-                   (stxx3[size1 -1] - quantity);       
+                   (stxx3[size1 -1] -= quantity);       
                    total += subTotal;
                    cout << t[choice1 -1] << " | " << "XX-Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;                    
                 }
+
             selectedItems.push_back(t[choice1 - 1]);
             selectedSizes.push_back(sizeStr);
             selectedQuantities.push_back(quantity);
@@ -157,15 +159,40 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
     
     } else if (choice == "2") { // bottoms
         int choice2;
+
+        cout << "BOTTOMS:\n" << endl;
+       cout << setw(3) << left << "#" << setw(1)
+         << setw(20) << left << "NAME" << setw(1)
+         
+         << setw(10) << left << "(XS)PRICE " << setw(1) << setw(15) << left << setw(1)
+         << setw(10) << left << "(S)PRICE " << setw(1) << setw(15) << left << setw(1)
+         << setw(10) << left << "(M)PRICE " << setw(1) << setw(15) << left << setw(1)
+         << setw(10) << left << "(L)PRICE " << setw(1) << setw(15) << left << setw(1)
+         << setw(10) << left << "(XL)PRICE " << setw(1) << setw(15) << left << setw(1)
+         << setw(10) << left << "(XXL)PRICE " << setw(1) << setw(15) << left;
+            
+          cout << endl;
+
             for (int j = 0; j < b.size(); j++) {
-            cout << j + 1 << ". " << b[j] << endl;
+            cout << endl << setw(3) << left << j + 1 << setw(1) 
+             << setw(20) << left << b[j] << setw(1)
+            << setw(10) << left << prx4[j] << setw(1) << setw(15) << left  << setw(1)
+             << setw(10) << left << pr4[j] << setw(1) << setw(15) << left << setw(1)
+             << setw(10) << left << pr5[j] << setw(1) << setw(15) << left << setw(1)
+             << setw(10) << left << pr6[j] << setw(1) << setw(15) << left << setw(1)
+            
+             << setw(10) << left << prx6[j] << setw(1) << setw(15) << left << setw(1)
+             << setw(10) << left << prxx6[j] << setw(1) << setw(15) << left  << setw(1);
+             
+             cout << endl;
         } 
+
         cout << endl;
         
         cout << "Enter: ";
         cin >> choice2;
         
-        for(int i = 0; i < t.size(); i++){
+        for(int i = 0; i < b.size(); i++){
             if((choice2 - 1) == i){
                 cout<<"\nWhat size: \n\n1.Extra-Small\n2.Small\n3.Medium\n4.Large\n5.X-Large\n6.XX-Large";
                 cout<<"\n\nInput: "; 
@@ -231,15 +258,23 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
 
     } else if (choice == "3") {
         int choice3;
+
+        cout << "Accessories:\n" << endl;
+    cout << setw(3) << left << "#" << setw(1)
+         << setw(20) << left << "NAME" << setw(1)
+         << setw(15) << left << "PRICE" << setw(1) << endl;
+
             for (int j = 0; j < a.size(); j++) {
-            cout << j + 1 <<  ". " << a[j] << endl;
+            cout << setw(3) << left << j + 1 << setw(1)
+             << setw(20) << left << a[j] << setw(1)
+             << setw(15) << left << pr7[j] << setw(1) << endl;
         }
         cout << endl;
 
         cout << "Enter: ";
         cin >> choice3;
         
-        for(int i = 0; i < t.size(); i++){
+        for(int i = 0; i < a.size(); i++){
             if((choice3 - 1) == i){
                 cout<<"\nWhat size: \n\n1.Small\n2.Medium\n3.Large";
                 cout<<"\n\nInput: "; 
