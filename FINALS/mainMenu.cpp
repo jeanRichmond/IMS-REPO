@@ -217,7 +217,7 @@ int main()
           isAdmin = false;
           break;
         default:
-          cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
+          cout << "\n[ERROR]: (PLEASE BETWEEN 1 & 7)\n";
           string anything;
           cout << "Press any key to continue...";
           getline(cin >> ws, anything);
