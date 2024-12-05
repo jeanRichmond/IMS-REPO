@@ -351,48 +351,68 @@ void addProduct(bool isAdmin, string category[],
     } // end of first loop
 } // end of void function
 
-void displayInventory( // done... atleast for now
-    vector<string> t, vector<string> b, vector<string> a,
-    vector<float> p1, vector<float> p2, vector<float> p3,
-    vector<int> s1, vector<int> s2, vector<int> s3,
-    vector<float> p4, vector<float> p5, vector<float> p6,
-    vector<int> s4, vector<int> s5, vector<int> s6,
-    vector<float> p7, vector<int> s7)
+void displayInventory( vector<string> t, vector<string> b, vector<string> a,
+    
+    vector<double> pxs1, vector<double> p1, vector<double> p2,
+    vector<double> p3,   vector<double> px3, vector<double> pxx3,
+
+    vector<int> sxs1, vector<int> s1, vector<int> s2,
+    vector<int> s3, vector<int> sx3, vector<int> sxx3,
+
+    vector<double> pxs4, vector<double> p4, vector<double> p5,
+    vector<double> p6, vector<double> px6, vector<double> pxx6,
+ 
+    vector<int> sxs4, vector<int> s4, vector<int> s5,
+    vector<int> s6, vector<int> sx6, vector<int> sxx6,
+
+    vector<double> p7, vector<int> s7)
 {
     system("cls");
     cout << "Display Inventory\n\n";
     cout << "Tops:" << endl;
     cout << setw(3) << left << "#" << setw(1)
-         << setw(20) << left << "NAME" << setw(1)
-         << setw(10) << left << "PRICE (S)" << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
-         << setw(10) << left << "PRICE (M)" << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
-         << setw(10) << left << "PRICE (L)" << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(15) << left << "NAME" << setw(1)
+         << setw(10) << left << "(XS)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(S)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(M)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(L)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(XL)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(XXL)PRICE " << setw(1) << setw(10) << left << "STOCK/S" << setw(1)
          << setw(10) << left << "TOTAL OF STOCKS\n";
     for (int i = 0; i < t.size(); i++)
     {
         cout << setw(3) << left << i + 1 << setw(1)
-             << setw(20) << left << t[i] << setw(1)
+             << setw(15) << left << t[i] << setw(1)
+             << setw(10) << left << pxs1[i] << setw(1) << setw(15) << left << sxs1[i] << setw(1)
              << setw(10) << left << p1[i] << setw(1) << setw(15) << left << s1[i] << setw(1)
              << setw(10) << left << p2[i] << setw(1) << setw(15) << left << s2[i] << setw(1)
              << setw(10) << left << p3[i] << setw(1) << setw(15) << left << s3[i] << setw(1)
-             << setw(10) << left << s1[i] + s2[i] + s3[i];
+             << setw(10) << left << px3[i] << setw(1) << setw(15) << left << sx3[i] << setw(1)
+             << setw(11) << left << pxx3[i] << setw(1) << setw(10) << left << sxx3[i] << setw(1)
+             << setw(10) << left << sxs1[i] + s1[i] + s2[i] + s3[i] + sx3[i] + sxx3[i];
         cout << endl;
     }
     cout << "Bottoms:" << endl;
     cout << setw(3) << left << "#" << setw(1)
-         << setw(20) << left << "NAME" << setw(1)
-         << setw(10) << left << "PRICE (S)" << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
-         << setw(10) << left << "PRICE (M)" << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
-         << setw(10) << left << "PRICE (L)" << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(15) << left << "NAME" << setw(1)
+         << setw(10) << left << "(XS)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(S)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(M)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(L)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(XL)PRICE " << setw(1) << setw(15) << left << "STOCK/S" << setw(1)
+         << setw(10) << left << "(XXL)PRICE " << setw(1) << setw(10) << left << "STOCK/S" << setw(1)
          << setw(10) << left << "TOTAL OF STOCKS\n";
     for (int i = 0; i < b.size(); i++)
     {
         cout << setw(3) << left << i + 1 << setw(1)
-             << setw(20) << left << b[i] << setw(1)
+             << setw(15) << left << b[i] << setw(1)
+             << setw(10) << left << pxs4[i] << setw(1) << setw(15) << left << sxs4[i] << setw(1)
              << setw(10) << left << p4[i] << setw(1) << setw(15) << left << s4[i] << setw(1)
              << setw(10) << left << p5[i] << setw(1) << setw(15) << left << s5[i] << setw(1)
              << setw(10) << left << p6[i] << setw(1) << setw(15) << left << s6[i] << setw(1)
-             << setw(10) << left << s4[i] + s5[i] + s6[i];
+             << setw(10) << left << px6[i] << setw(1) << setw(15) << left << sx6[i] << setw(1)
+             << setw(11) << left << pxx6[i] << setw(1) << setw(10) << left << sxx6[i] << setw(1)
+             << setw(10) << left << sxs4[i] + s4[i] + s5[i] + s6[i] + sx6[i] +sxx6[i];
         cout << endl;
     }
     cout << "Accessories:" << endl;
@@ -414,9 +434,80 @@ void displayInventory( // done... atleast for now
     cin >> anything;
 }
 
+
 void productSales()
 {
+
+
+
+
+
     cout << "product sales\n";
+    cout << "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+    cout << "====== [ Y O U  A R E   I N   T H E   P R O D U C T   S A L E S ] =====";
+    cout << "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+
+
+    // // Initialize variables for analysis
+    // string topProduct = "None", lowProduct = "None", noSalesProducts = "";
+    // int maxSales = 0, minSales = INT_MAX;
+
+    // // Check sales for Tops
+    // for (size_t i = 0 ;i < tops.size(); i++) {
+    //     if (salesTops[i] > maxSales) {
+    //         maxSales = salesTops[i];
+    //         topProduct = tops[i];
+    //     }
+    //     if (salesTops[i] > 0 && salesTops[i] < minSales) {
+    //         minSales = salesTops[i];
+    //         lowProduct = tops[i];
+    //     }
+    //     if (salesTops[i] == 0) {
+    //         noSalesProducts += tops[i] + ", ";
+    //     }
+    // }
+
+    // // Check sales for Bottoms
+    // for (size_t i = 0; i < bottoms.size(); i++) {
+    //     if (salesBottoms[i] > maxSales) {
+    //         maxSales = salesBottoms[i];
+    //         topProduct = bottoms[i];
+    //     }
+    //     if (salesBottoms[i] > 0 && salesBottoms[i] < minSales) {
+    //         minSales = salesBottoms[i];
+    //         lowProduct = bottoms[i];
+    //     }
+    //     if (salesBottoms[i] == 0) {
+    //         noSalesProducts += bottoms[i] + ", ";
+    //     }
+    // }
+
+    // // Check sales for Accessories
+    // for (size_t i = 0; i < accessories.size(); i++) {
+    //     if (salesAccessories[i] > maxSales) {
+    //         maxSales = salesAccessories[i];
+    //         topProduct = accessories[i];
+    //     }
+    //     if (salesAccessories[i] > 0 && salesAccessories[i] < minSales) {
+    //         minSales = salesAccessories[i];
+    //         lowProduct = accessories[i];
+    //     }
+    //     if (salesAccessories[i] == 0) {
+    //         noSalesProducts += accessories[i] + ", ";
+    //     }
+    // }
+
+    // // Display results
+    // cout << "\n[ ANALYSIS ]\n";
+    // cout << "Top Selling Product: " << topProduct << " (" << maxSales << " units)\n";
+    // cout << "Lowest Selling Product: " << lowProduct << " (" << minSales << " units)\n";
+    // cout << "Products with No Sales: " << (noSalesProducts.empty() ? "None" : noSalesProducts.substr(0, noSalesProducts.size() - 2)) << "\n";
+
+    // cout << "\nPress any key to return to the menu...";
+    // string anything;
+    // getline(cin >> ws, anything);
+    
+
 }
 
 void salesHistory()
