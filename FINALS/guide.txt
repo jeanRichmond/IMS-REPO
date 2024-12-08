@@ -68,19 +68,6 @@ case 2(store)
 5. edit inventory
 6. back //end loop back to menu
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
   customer buy output
           // if (i == 0) { 
         //     for (int j = 0; j < tops.size(); j++) {
@@ -115,3 +102,44 @@ case 2(store)
             
           }
         }
+
+        item    size        price             quantity           subTotal
+        Polo    small       100              x3                  300
+        Polo    small       100              x3                  300
+        Polo    small       100              x3                  300
+
+        total 900
+
+        [1] pay (bawas stock)
+        [2] cancel/empty basket (reverse engineering)
+        [3] back
+
+        *kapag mababa bawal
+        *kapag enough na, bawas sa stock 
+
+
+
+first 1
+second //
+third 2
+foiurt 
+fusu 
+
+
+
+
+
+
+
+if (size3 == 1) { //for small
+                    sizeStr = "N/A";
+                    subTotal = (pr7[size3 -1] * quantity);
+                    (st7[size3 -1] -= quantity); 
+                    total += subTotal;
+                    cout << t[choice3 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
+                } 
+
+            selectedItems.push_back(a[choice3 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);

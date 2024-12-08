@@ -7,6 +7,16 @@
     "deque": "cpp",
     "string": "cpp",
     "vector": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "array": "cpp",
+    "string_view": "cpp",
+    "stacktrace": "cpp",
+    "bitset": "cpp",
+    "initializer_list": "cpp",
+    "ranges": "cpp",
+    "span": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp",
+    "any": "cpp"
   }
 }

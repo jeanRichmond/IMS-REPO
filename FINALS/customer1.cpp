@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-void buy (string category[], vector<string> t, vector<string> b, vector<string> a, 
+void pickItem(string category[], vector<string> t, vector<string> b, vector<string> a, 
  vector<double>& prx1, vector<double>& pr1, vector<double>& pr2, 
  vector<double>& pr3, vector<double>& prx3, vector<double>& prxx3, 
 
@@ -103,52 +103,111 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
                 string sizeStr;
                 
                 if (size1 == 1) { //for xtra-small
+                    if (quantity > stx1[choice1 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {
                     sizeStr = "Extra-Small";
-                    subTotal = (prx1[size1 -1] * quantity);
-                    (stx1[size1 -1] -= quantity); 
+                    subTotal = (prx1[choice1 - 1] * quantity);
+                    (stx1[choice1 -1] -= quantity); 
                     total += subTotal;
                     cout << t[choice1 -1] << " | " << "Extra-Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
-                } 
-                if (size1 == 2) { //for small
-                    sizeStr = "Small";
-                    subTotal = (pr1[size1 -1] * quantity);
-                    (st1[size1 -1] -= quantity); 
-                    total += subTotal;
-                    cout << t[choice1 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
-                } 
-                if (size1 == 3) { //for medium
-                    sizeStr = "Medium";
-                    subTotal = (pr2[size1 -1] * quantity);
-                    (st2[size1 -1] -= quantity);   
-                    total += subTotal;
-                    cout << t[choice1 -1] << " | " << "Medium" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl; 
-                }
-                if (size1 == 4) { // for large
-                   sizeStr = "Large";
-                   subTotal = (pr3[size1 -1] * quantity);       
-                   (st3[size1 -1] -= quantity);       
-                   total += subTotal;
-                   cout << t[choice1 -1] << " | " << "Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;                    
-                }
-                if (size1 == 5) { // for Xlarge
-                   sizeStr = "X-Large";
-                   subTotal = (prx3[size1 -1] * quantity);       
-                   (stx3[size1 -1] -= quantity);       
-                   total += subTotal;
-                   cout << t[choice1 -1] << " | " << "X-Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;                    
-                }
-                   if (size1 == 6) { // for XXlarge
-                   sizeStr = "XX-Large";
-                   subTotal = (prxx3[size1 -1] * quantity);       
-                   (stxx3[size1 -1] -= quantity);       
-                   total += subTotal;
-                   cout << t[choice1 -1] << " | " << "XX-Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;                    
-                }
-
             selectedItems.push_back(t[choice1 - 1]);
             selectedSizes.push_back(sizeStr);
             selectedQuantities.push_back(quantity);
-            selectedPrices.push_back(subTotal);
+            selectedPrices.push_back(subTotal);                    
+                    }
+                } 
+                if (size1 == 2) { //for small
+                    if (quantity > st1[choice1 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                    sizeStr = "Small";
+                    subTotal = (pr1[choice1 - 1] * quantity);
+                    (st1[choice1 -1] -= quantity); 
+                    total += subTotal;
+                    cout << t[choice1 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(t[choice1 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                    
+                    }
+                } 
+                if (size1 == 3) { //for medium
+                    if (quantity > st2[choice1 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                    sizeStr = "Medium";
+                    subTotal = (pr2[choice1 - 1] * quantity);
+                    (st2[choice1 -1] -= quantity);   
+                    total += subTotal;
+                    cout << t[choice1 -1] << " | " << "Medium" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl; 
+            selectedItems.push_back(t[choice1 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                    
+                    }
+                }
+                if (size1 == 4) { // for large
+                    if (quantity > st3[choice1 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                   sizeStr = "Large";
+                   subTotal = (pr3[choice1 - 1] * quantity);       
+                   (st3[choice1 -1] -= quantity);        
+                   total += subTotal;
+                   cout << t[choice1 -1] << " | " << "Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(t[choice1 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                   
+                   }                    
+                }
+                if (size1 == 5) { // for Xlarge
+                    if (quantity > stx3[choice1 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                   sizeStr = "X-Large";
+                   subTotal = prx3[choice1 - 1] * quantity;       
+                   (stx3[choice1 -1] -= quantity);       
+                   total += subTotal;
+                   cout << t[choice1 -1] << " | " << "X-Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl; 
+            selectedItems.push_back(t[choice1 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                   
+                   }                   
+                }
+                   if (size1 == 6) { // for XXlarge
+                    if (quantity > stxx3[choice1 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                   
+                   sizeStr = "XX-Large";
+                   subTotal = prxx3[choice1 - 1] * quantity;       
+                   (stxx3[choice1 -1] -= quantity);       
+                   total += subTotal;
+                   cout << t[choice1 -1] << " | " << "XX-Large" << " | " << "Quantity: " << quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(t[choice1 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                   
+                   }             
+                }      
+
+                
+
+
 
             }
         
@@ -205,51 +264,108 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
                   string sizeStr;
                 
                 if (size2 == 1) { //for small
+                    if (quantity > stx4[choice2 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
                     sizeStr = "Extra-Small";
-                    subTotal = (prx4[size2 -1] * quantity);
-                    (stx4[size2 -1] - quantity); 
+                    subTotal = (prx4[choice2 -1] * quantity);
+                    (stx4[choice2 -1] -= quantity); 
                     total += subTotal;
-                    cout << t[choice2 -1] << " | " << "Extra-Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
-                }
-                if (size2 == 2) { //for small
-                    sizeStr = "Small";
-                    subTotal = (pr4[size2 -1] * quantity);
-                    (st4[size2 -1] - quantity); 
-                    total += subTotal;
-                    cout << t[choice2 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
-                } 
-                if (size2 == 3) {
-                    sizeStr = "Medium";
-                    subTotal = (pr5[size2 -1] * quantity);
-                    (st5[size2 -1] - quantity); 
-                    total += subTotal;
-                    cout << t[choice2 -1] << " | " << "Medium" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;                   
-                }
-                if (size2 == 4) {
-                    sizeStr = "Large";
-                    subTotal = (pr6[size2 -1] * quantity);
-                    (st6[size2 -1] - quantity); 
-                    total += subTotal;
-                    cout << t[choice2 -1] << " | " << "Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;                   
-                }
-                if (size2 == 5) {
-                    sizeStr = "X-Large";
-                    subTotal = (prx6[size2 -1] * quantity);
-                    (stx6[size2 -1] - quantity); 
-                    total += subTotal;
-                    cout << t[choice2 -1] << " | " << "X-Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;                   
-                }
-                if (size2 == 6) {
-                    sizeStr = "XX-Large";
-                    subTotal = (prxx6[size2 -1] * quantity);
-                    (stxx6[size2 -1] - quantity); 
-                    total += subTotal;
-                    cout << t[choice2 -1] << " | " << "XX-Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;                   
-                }
+                    cout << b[choice2 -1] << " | " << "Extra-Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
             selectedItems.push_back(b[choice2 - 1]);
             selectedSizes.push_back(sizeStr);
             selectedQuantities.push_back(quantity);
-            selectedPrices.push_back(subTotal);
+            selectedPrices.push_back(subTotal);                    
+                    }
+                }
+                if (size2 == 2) { //for small
+                    if (quantity > st4[choice2 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                                
+                    sizeStr = "Small";
+                    subTotal = (pr4[choice2 -1] * quantity);
+                    (st4[choice2 -1] -= quantity); 
+                    total += subTotal;
+                    cout << b[choice2 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(b[choice2 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                    
+                    }
+                } 
+                if (size2 == 3) {
+                    if (quantity > st5[choice2 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                    sizeStr = "Medium";
+                    subTotal = (pr5[choice2 -1] * quantity);
+                    (st5[choice2 -1] -= quantity); 
+                    total += subTotal;
+                    cout << b[choice2 -1] << " | " << "Medium" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(b[choice2 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                    
+                    }                   
+                }
+                if (size2 == 4) {
+                    if (quantity > st6[choice2 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                    sizeStr = "Large";
+                    subTotal = (pr6[choice2 -1] * quantity);
+                    (st6[choice2 -1] -= quantity); 
+                    total += subTotal;
+                    cout << b[choice2 -1] << " | " << "Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(b[choice2 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                    
+                    }                   
+                }
+                if (size2 == 5) {
+                    if (quantity > stx6[choice2 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                    sizeStr = "X-Large";
+                    subTotal = (prx6[choice2 -1] * quantity);
+                    (stx6[choice2 -1] -= quantity); 
+                    total += subTotal;
+                    cout << b[choice2 -1] << " | " << "X-Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(b[choice2 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                    
+                    }                   
+                }
+                if (size2 == 6) {
+                    if (quantity > stxx6[choice2 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else {                
+                    sizeStr = "XX-Large";
+                    subTotal = prxx6[choice2 - 1] * quantity;  
+                    (stxx6[choice2 -1] -= quantity); 
+                    total += subTotal;
+                    cout << b[choice2 -1] << " | " << "XX-Large" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
+            selectedItems.push_back(b[choice2 - 1]);
+            selectedSizes.push_back(sizeStr);
+            selectedQuantities.push_back(quantity);
+            selectedPrices.push_back(subTotal);                    
+                    }             
+                }
+
             }
             }
             
@@ -276,10 +392,10 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
         
         for(int i = 0; i < a.size(); i++){
             if((choice3 - 1) == i){
-                cout<<"\nWhat size: \n\n1.Small\n2.Medium\n3.Large";
-                cout<<"\n\nInput: "; 
-                int size3;
-                cin >> size3;
+                // cout<<"\nWhat size: \n\n1.Small\n2.Medium\n3.Large";
+                // cout<<"\n\nInput: "; 
+                // int size3;
+                // cin >> size3;
 
                 int quantity;
                 cout << "\nEnter Quantity: ";
@@ -287,13 +403,19 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
                 string sizeStr;
                 
 
-                if (size3 == 1) { //for small
+                // if (size3 == 1) { 
+                     if (quantity > st7[choice3 -1]) {
+                        cout << "Not enough stocks.\n";
+                    } else if (quantity <= 0) {
+                        cout << "Invalid input...\n";
+                    } else { 
                     sizeStr = "N/A";
-                    subTotal = (pr7[size3 -1] * quantity);
-                    (st7[size3 -1] - quantity); 
+                    subTotal = (pr7[choice3 -1] * quantity);
+                    (st7[choice3 -1] -= quantity); 
                     total += subTotal;
                     cout << t[choice3 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
-                } 
+                    }
+                // } 
 
             selectedItems.push_back(a[choice3 - 1]);
             selectedSizes.push_back(sizeStr);
@@ -314,23 +436,92 @@ void buy (string category[], vector<string> t, vector<string> b, vector<string> 
 
 
 
-void cashier (vector<string>& selectedItems,  
+void payNow (vector<string>& selectedItems,  
              vector<string>& selectedSizes, 
              vector<int>& selectedQuantities,  
              vector<double>& selectedPrices) {
 
-    cout << "---CASHIER---" << endl;
+    cout << "\n---CASHIER---" << endl;
     cout << "Order Summary:\n";
     double total = 0.0;
 
+    if(selectedItems.empty()){
+        cout<<"The basket is Empty.";
+        
+    } else {
+  cout << left << setw(20) << "ITEM" 
+         << setw(15) << "SIZE" 
+         << setw(15) << "PRICE"
+         << setw(15) << "QUANTITY" 
+         << setw(15) << "SUBTOTAL" 
+         << endl;
+         cout << endl;
+    //rinig ba ko 
+    // Loop through the selected items and display their details
     for (int i = 0; i < selectedItems.size(); i++) {
-        cout << "Item: " << selectedItems.at(i) 
-             << " | Size: " << selectedSizes.at(i)
-             << " | Quantity: " << selectedQuantities.at(i)
-             << " | Total Price: " << selectedPrices.at(i) << endl;
-        total += selectedPrices[i];
+        cout << left << setw(20) << selectedItems[i] 
+             << setw(15) << selectedSizes[i]
+             << setw(15) << selectedPrices[i] / selectedQuantities[i]
+             << setw(15) << selectedQuantities[i]
+             << setw(15) << fixed << setprecision(2) << selectedPrices[i] 
+             << endl;
+             total += selectedPrices[i];
+    }   
+             
+             cout << "\nTotal Amount: " << total << endl;
+        double money;
+        
+        while (true) {
+             cout << "Enter Your Money: ";
+             cin >> money;
+             if (money <= 0) {
+                cout << "\nInvalid input...\n";
+             } else if (money < total) {
+                cout << "\nInsufficient Money! You need " <<  total - money << " more.\n";
+             } else if (money == total) {
+                cout << "You have no change, Thanks for purchasing.\n\n";
+                break;
+             } else {
+                cout << "Your change is: " << money - total <<", Thanks for purchasing."<< endl<<endl;
+                break;
+             }
+        }
+   
     }
 
-    cout << "Total Amount: " << total << endl;
 }
+
+
+void checkBasket (vector<string>& selectedItems,  
+             vector<string>& selectedSizes, 
+             vector<int>& selectedQuantities) {
+
+    cout << "\n---BASKET---\n" << endl;
+
+    string basketChoice;
+
+    cout << "\n[1] SHOW ITEM/S\n";
+    cout << "[2] CANCEL / EMPTY BASKET\n";
+
+    if (basketChoice == "1") {
+
+   if (selectedItems.empty()) {
+        cout << "Your basket is Empty!!\n";
+    } else {
+               for (int i = 0; i < selectedItems.size(); i++) {
+        cout << "Item: " << selectedItems.at(i) 
+             << " | Size: " << selectedSizes.at(i)
+             << " | Quantity: " << selectedQuantities.at(i) << endl;
+     }
+    }
+
+    } else if (basketChoice == "2") {
+   
+}
+    
+
+}
+
+
+
 

@@ -117,3 +117,104 @@ int main() {
 
     return 0;
 }
+
+// if (size1 == 5) { // X-Large
+//     if (choice1 - 1 >= prx3.size()) {
+//         cout << "Error: Invalid access for X-Large price. Index out of range.\n";
+//         continue;
+//     }
+//     sizeStr = "X-Large";
+//     subTotal = prx3[choice1 - 1] * quantity;
+//     stx3[choice1 - 1] -= quantity;
+//     total += subTotal;
+//     cout << t[choice1 - 1] << " | X-Large | Quantity: " << quantity << " | Price: " << subTotal << endl;
+// }
+
+// if (size1 == 6) { // XX-Large
+//     if (choice1 - 1 >= prxx3.size()) {
+//         cout << "Error: Invalid access for XX-Large price. Index out of range.\n";
+//         continue;
+//     }
+//     sizeStr = "XX-Large";
+//     subTotal = prxx3[choice1 - 1] * quantity;
+//     stxx3[choice1 - 1] -= quantity;
+//     total += subTotal;
+//     cout << t[choice1 - 1] << " | XX-Large | Quantity: " << quantity << " | Price: " << subTotal << endl;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // // Initialize variables for analysis
+    // string topProduct = "None", lowProduct = "None", noSalesProducts = "";
+    // int maxSales = 0, minSales = INT_MAX;
+
+    // // Check sales for Tops
+    // for (size_t i = 0 ;i < tops.size(); i++) {
+    //     if (salesTops[i] > maxSales) {
+    //         maxSales = salesTops[i];
+    //         topProduct = tops[i];
+    //     }
+    //     if (salesTops[i] > 0 && salesTops[i] < minSales) {
+    //         minSales = salesTops[i];
+    //         lowProduct = tops[i];
+    //     }
+    //     if (salesTops[i] == 0) {
+    //         noSalesProducts += tops[i] + ", ";
+    //     }
+    // }
+
+    // // Check sales for Bottoms
+    // for (size_t i = 0; i < bottoms.size(); i++) {
+    //     if (salesBottoms[i] > maxSales) {
+    //         maxSales = salesBottoms[i];
+    //         topProduct = bottoms[i];
+    //     }
+    //     if (salesBottoms[i] > 0 && salesBottoms[i] < minSales) {
+    //         minSales = salesBottoms[i];
+    //         lowProduct = bottoms[i];
+    //     }
+    //     if (salesBottoms[i] == 0) {
+    //         noSalesProducts += bottoms[i] + ", ";
+    //     }
+    // }
+
+    // // Check sales for Accessories
+    // for (size_t i = 0; i < accessories.size(); i++) {
+    //     if (salesAccessories[i] > maxSales) {
+    //         maxSales = salesAccessories[i];
+    //         topProduct = accessories[i];
+    //     }
+    //     if (salesAccessories[i] > 0 && salesAccessories[i] < minSales) {
+    //         minSales = salesAccessories[i];
+    //         lowProduct = accessories[i];
+    //     }
+    //     if (salesAccessories[i] == 0) {
+    //         noSalesProducts += accessories[i] + ", ";
+    //     }
+    // }
+
+    // // Display results
+    // cout << "\n[ ANALYSIS ]\n";
+    // cout << "Top Selling Product: " << topProduct << " (" << maxSales << " units)\n";
+    // cout << "Lowest Selling Product: " << lowProduct << " (" << minSales << " units)\n";
+    // cout << "Products with No Sales: " << (noSalesProducts.empty() ? "None" : noSalesProducts.substr(0, noSalesProducts.size() - 2)) << "\n";
+
+    // cout << "\nPress any key to return to the menu...";
+    // string anything;
+    // getline(cin >> ws, anything);
+    
+
+
+
+    

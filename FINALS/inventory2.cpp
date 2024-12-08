@@ -435,79 +435,18 @@ void displayInventory( vector<string> t, vector<string> b, vector<string> a,
 }
 
 
-void productSales()
-{
+// void productSales()
+// {
 
+//     cout << "product sales\n";
+//     cout << "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
+//     cout << "====== [ Y O U  A R E   I N   T H E   P R O D U C T   S A L E S ] =====";
+//     cout << "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
 
+// }
 
-
-
-    cout << "product sales\n";
-    cout << "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-    cout << "====== [ Y O U  A R E   I N   T H E   P R O D U C T   S A L E S ] =====";
-    cout << "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-
-
-    // // Initialize variables for analysis
-    // string topProduct = "None", lowProduct = "None", noSalesProducts = "";
-    // int maxSales = 0, minSales = INT_MAX;
-
-    // // Check sales for Tops
-    // for (size_t i = 0 ;i < tops.size(); i++) {
-    //     if (salesTops[i] > maxSales) {
-    //         maxSales = salesTops[i];
-    //         topProduct = tops[i];
-    //     }
-    //     if (salesTops[i] > 0 && salesTops[i] < minSales) {
-    //         minSales = salesTops[i];
-    //         lowProduct = tops[i];
-    //     }
-    //     if (salesTops[i] == 0) {
-    //         noSalesProducts += tops[i] + ", ";
-    //     }
-    // }
-
-    // // Check sales for Bottoms
-    // for (size_t i = 0; i < bottoms.size(); i++) {
-    //     if (salesBottoms[i] > maxSales) {
-    //         maxSales = salesBottoms[i];
-    //         topProduct = bottoms[i];
-    //     }
-    //     if (salesBottoms[i] > 0 && salesBottoms[i] < minSales) {
-    //         minSales = salesBottoms[i];
-    //         lowProduct = bottoms[i];
-    //     }
-    //     if (salesBottoms[i] == 0) {
-    //         noSalesProducts += bottoms[i] + ", ";
-    //     }
-    // }
-
-    // // Check sales for Accessories
-    // for (size_t i = 0; i < accessories.size(); i++) {
-    //     if (salesAccessories[i] > maxSales) {
-    //         maxSales = salesAccessories[i];
-    //         topProduct = accessories[i];
-    //     }
-    //     if (salesAccessories[i] > 0 && salesAccessories[i] < minSales) {
-    //         minSales = salesAccessories[i];
-    //         lowProduct = accessories[i];
-    //     }
-    //     if (salesAccessories[i] == 0) {
-    //         noSalesProducts += accessories[i] + ", ";
-    //     }
-    // }
-
-    // // Display results
-    // cout << "\n[ ANALYSIS ]\n";
-    // cout << "Top Selling Product: " << topProduct << " (" << maxSales << " units)\n";
-    // cout << "Lowest Selling Product: " << lowProduct << " (" << minSales << " units)\n";
-    // cout << "Products with No Sales: " << (noSalesProducts.empty() ? "None" : noSalesProducts.substr(0, noSalesProducts.size() - 2)) << "\n";
-
-    // cout << "\nPress any key to return to the menu...";
-    // string anything;
-    // getline(cin >> ws, anything);
+void productSales() {
     
-
 }
 
 void salesHistory()
@@ -515,10 +454,6 @@ void salesHistory()
     cout << "Sales history\n";
 }
 
-void restock()
-{
-    cout << "restock\n";
-}
 
 void edit(
     vector<string> t, vector<string> b, vector<string> a,

@@ -5,8 +5,8 @@ using namespace std;
 
 string category[] = {"TOPS", "BOTTOMS", "ACCESSORIES"};
 // item list
-vector<string> tops = {"Polo", "T-Shirt", "Hoody"}; // choice = 1
-vector<string> bottoms = {"Short", "Skirt", "Sweat pant", "Denim"};
+vector<string> tops = {"Polo", "T-Shirt", "Hoodie"}; // choice = 1
+vector<string> bottoms = {"Short", "Skirt", "Sweat Pants", "Denim"};
 vector<string> accessories = {"Cap", "Handkerchief"};
 // price for tops 
 vector<double> priceXSmallTops   = {250.00, 250.00, 250.00};
@@ -14,7 +14,7 @@ vector<double> priceSmallTops    = {300.00, 300.00, 300.00};
 vector<double> priceMediumlTops  = {350.00, 350.00, 350.00};
 vector<double> priceLargeTops    = {400.00, 400.00, 400.00};
 vector<double> priceXLargeTops   = {500.00, 500.00, 500.00};
-vector<double> priceXXLargeTops  = {700.00, 700.00, 700.00};
+vector<double> priceXXLargeTops  = {600.00, 600.00, 600.00};
 // stocks for tops
 vector<int> stockXSmallSizeTops   = {100, 100, 100};
 vector<int> stockSmallSizeTops    = {100, 100, 100};
@@ -28,7 +28,7 @@ vector<double> priceSmallBottoms    = {300.00, 300.00, 300.00, 300.00};
 vector<double> priceMediumlBottoms  = {350.00, 350.00, 350.00, 350.00};
 vector<double> priceLargeBottoms    = {400.00, 400.00, 400.00, 400.00};
 vector<double> priceXLargeBottoms   = {500.00, 500.00, 500.00, 500.00};
-vector<double> priceXXLargeBottoms  = {700.00, 700.00, 700.00, 700.00};
+vector<double> priceXXLargeBottoms  = {600.00, 600.00, 600.00, 600.00};
 // stock for bottoms
 vector<int> stockXSmallSizeBottoms  = {100, 100, 100, 100};
 vector<int> stockSmallSizeBottoms   = {100, 100, 100, 100};
@@ -37,7 +37,7 @@ vector<int> stockLargeSizeBottoms   = {300, 300, 300, 300};
 vector<int> stockXLargeSizeBottoms  = {300, 300, 300, 300};
 vector<int> stockXXLargeSizeBottoms = {300, 300, 300, 300};
 // price for accessories
-vector<double> priceAccessories = {500.00, 50.00};
+vector<double> priceAccessories = {450.00, 50.00};
 vector<int> stockAccessories    = {100, 100}; // isang price nalang to, since di na applicable si size
 
 //vectors for storing new elements
@@ -79,9 +79,10 @@ int main()
       bool loopAgain = true;
       while (loopAgain == true)
       {
-        cout << "\n[1] BUY\n";
-        cout << "[2] CASHIER\n";
-        cout << "[3] BACK\n";
+        cout << "\n[1] PICK ITEM/S\n";     // Pipili ng items
+        cout << "[2] PAY NOW\n";           // magbayad and minus stock
+        cout << "[3] CHECK BASKET/CART\n"; // dito pedeng ma-edit pa yung mga napili na
+        cout << "[4] BACK\n";              // Back to main menu - item/s will be stay sa cart
 
         int choice; // local
         cout << "\n[ENTER INPUT]: ";
@@ -95,7 +96,7 @@ int main()
         {
         case 1:
         {
-          buy(category, tops, bottoms, accessories,
+          pickItem(category, tops, bottoms, accessories,
               priceXSmallTops, priceSmallTops, priceMediumlTops, priceLargeTops, priceXLargeTops, priceXXLargeTops,
               
               stockXSmallSizeTops, stockSmallSizeTops, stockMediumlSizeTops, stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
@@ -112,11 +113,19 @@ int main()
           break;
         }
         case 2:
-          cashier(selectedItems,selectedSizes,selectedQuantities, selectedPrices);
+          payNow(selectedItems,selectedSizes,selectedQuantities, selectedPrices);
           break;
-        case 3:
+        case 3: 
+        {
+          
+          checkBasket(selectedItems,selectedSizes,selectedQuantities);
+          break;
+        }
+        case 4:
+        {
           loopAgain = false;
           break;
+        }
         default:
           cout << "\n[ERROR]: (PLEASE BETWEEN 1 AND 7)\n";
         }
@@ -145,9 +154,8 @@ int main()
         cout << "[2] DISPLAY INVENTORY\n";
         cout << "[3] PRODUCT SALES\n";
         cout << "[4] SALES HISTORY\n";
-        cout << "[5] RE-STOCK/ADD STOCK\n";
-        cout << "[6] EDIT INVENTORY\n";
-        cout << "[7] EXIT\n";
+        cout << "[5] EDIT INVENTORY\n";
+        cout << "[6] EXIT\n";
         // while (loopAgain == true)
         cout << "\n[ENTER INPUT]: ";
         //{
@@ -199,20 +207,16 @@ int main()
           salesHistory();
           break;
         case 5:
-          restock();
-          break;
-        case 6:
-        {
-          // edit(tops, bottoms, accessories,
+                   // edit(tops, bottoms, accessories,
           //      priceSmallTops, priceMediumlTops, priceLargeTops,
           //      stockSmallSizeTops, stockMediumlSizeTops, stockLargeSizeTops,
           //      priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
           //      stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms,
           //      priceAccessories, stockAccessories);
           // break;
-        }
-          
-        case 7: // this also serves as logout
+          break;
+        case 6:
+        {
           loopAgain = false;
           isAdmin = false;
           break;
@@ -222,7 +226,7 @@ int main()
           cout << "Press any key to continue...";
           getline(cin >> ws, anything);
         }
-        //}
+        }
       }
 
       break;
