@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <algorithm>
 using namespace std;
 
 
@@ -492,17 +493,38 @@ void payNow (vector<string>& selectedItems,
 }
 
 
-void checkBasket (vector<string>& selectedItems,  
+void checkBasket (vector<string> tops, vector<string> bottoms, vector<string> accessories,
+    
+    vector<string>& selectedItems,  
              vector<string>& selectedSizes, 
-             vector<int>& selectedQuantities) {
+             vector<int>& selectedQuantities,
+             
+                 vector<int>& stockXSmallSizeTops,
+                 vector<int>& stockSmallSizeTops,
+                 vector<int>& stockMediumSizeTops,
+                 vector<int>& stockLargeSizeTops,
+                 vector<int>& stockXLargeSizeTops,
+                 vector<int>& stockXXLargeSizeTops,
+                 vector<int>& stockXSmallSizeBottoms,
+                 vector<int>& stockSmallSizeBottoms,
+                 vector<int>& stockMediumSizeBottoms,
+                 vector<int>& stockLargeSizeBottoms,
+                 vector<int>& stockXLargeSizeBottoms,
+                 vector<int>& stockXXLargeSizeBottoms,
+                 vector<int>& stockAccessories,
+                 
+                 double& subTotal,double& total) {
 
     cout << "\n---BASKET---\n" << endl;
 
     string basketChoice;
 
+    while (true) {
     cout << "\n[1] SHOW ITEM/S\n";
     cout << "[2] CANCEL / EMPTY BASKET\n";
-
+    cout << "[3] BACK\n";
+    cout << "Enter your choice: ";
+    cin >> basketChoice;
     if (basketChoice == "1") {
 
    if (selectedItems.empty()) {
@@ -515,11 +537,63 @@ void checkBasket (vector<string>& selectedItems,
      }
     }
 
-    } else if (basketChoice == "2") {
-   
-}
-    
+   } else if (basketChoice == "2") {
+        if (selectedItems.empty()) {
+            cout << "Your basket is already empty!\n";
+        } else {
+            // Restore stock and empty the basket
+            for (int i = 0; i < selectedItems.size(); i++) {
+                string item = selectedItems[i];
+                string size = selectedSizes[i];
+                int quantity = selectedQuantities[i];
 
+                // Restore stock for tops
+                if (find(tops.begin(), tops.end(), item) != tops.end()) {
+                    int index = find(tops.begin(), tops.end(), item) - tops.begin();
+                    if (size == "XS") stockXSmallSizeTops[index] += quantity;
+                    else if (size == "S") stockSmallSizeTops[index] += quantity;
+                    else if (size == "M") stockMediumSizeTops[index] += quantity;
+                    else if (size == "L") stockLargeSizeTops[index] += quantity;
+                    else if (size == "XL") stockXLargeSizeTops[index] += quantity;
+                    else if (size == "XXL") stockXXLargeSizeTops[index] += quantity;
+                }
+
+                // Restore stock for bottoms
+                else if (find(bottoms.begin(), bottoms.end(), item) != bottoms.end()) {
+                    int index = find(bottoms.begin(), bottoms.end(), item) - bottoms.begin();
+                    if (size == "XS") stockXSmallSizeBottoms[index] += quantity;
+                    else if (size == "S") stockSmallSizeBottoms[index] += quantity;
+                    else if (size == "M") stockMediumSizeBottoms[index] += quantity;
+                    else if (size == "L") stockLargeSizeBottoms[index] += quantity;
+                    else if (size == "XL") stockXLargeSizeBottoms[index] += quantity;
+                    else if (size == "XXL") stockXXLargeSizeBottoms[index] += quantity;
+                }
+
+                // Restore stock for accessories (no size check)
+                else if (find(accessories.begin(), accessories.end(), item) != accessories.end()) {
+                    int index = find(accessories.begin(), accessories.end(), item) - accessories.begin();
+                    stockAccessories[index] += quantity;
+                }
+            }
+            // Clear the basket
+
+            selectedItems.clear();
+            selectedSizes.clear();
+            selectedQuantities.clear();
+
+            subTotal = 0;
+            total = 0;
+
+            
+
+            cout << "Your basket has been emptied and stock levels restored.\n";
+        }
+    } else if (basketChoice == "3") {
+        break;
+    } else {
+        cout << "[ERROR]: Invalid choice.\n";
+    }
+    }
 }
 
 

@@ -356,16 +356,16 @@ void displayInventory( vector<string> t, vector<string> b, vector<string> a,
     vector<double> pxs1, vector<double> p1, vector<double> p2,
     vector<double> p3,   vector<double> px3, vector<double> pxx3,
 
-    vector<int> sxs1, vector<int> s1, vector<int> s2,
-    vector<int> s3, vector<int> sx3, vector<int> sxx3,
+    vector<int>& sxs1, vector<int>& s1, vector<int>& s2,
+    vector<int>& s3, vector<int>& sx3, vector<int>& sxx3,
 
     vector<double> pxs4, vector<double> p4, vector<double> p5,
     vector<double> p6, vector<double> px6, vector<double> pxx6,
  
-    vector<int> sxs4, vector<int> s4, vector<int> s5,
-    vector<int> s6, vector<int> sx6, vector<int> sxx6,
+    vector<int>& sxs4, vector<int>& s4, vector<int>& s5,
+    vector<int>& s6, vector<int>& sx6, vector<int>& sxx6,
 
-    vector<double> p7, vector<int> s7)
+    vector<double> p7, vector<int>& s7)
 {
     system("cls");
     cout << "Display Inventory\n\n";

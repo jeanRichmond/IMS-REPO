@@ -18,7 +18,7 @@ vector<double> priceXXLargeTops  = {600.00, 600.00, 600.00};
 // stocks for tops
 vector<int> stockXSmallSizeTops   = {100, 100, 100};
 vector<int> stockSmallSizeTops    = {100, 100, 100};
-vector<int> stockMediumlSizeTops  = {200, 200, 200};
+vector<int> stockMediumSizeTops  = {200, 200, 200};
 vector<int> stockLargeSizeTops    = {300, 300, 300};
 vector<int> stockXLargeSizeTops   = {300, 300, 300};
 vector<int> stockXXLargeSizeTops  = {300, 300, 300};
@@ -32,7 +32,7 @@ vector<double> priceXXLargeBottoms  = {600.00, 600.00, 600.00, 600.00};
 // stock for bottoms
 vector<int> stockXSmallSizeBottoms  = {100, 100, 100, 100};
 vector<int> stockSmallSizeBottoms   = {100, 100, 100, 100};
-vector<int> stockMediumlSizeBottoms = {200, 200, 200, 200};
+vector<int> stockMediumSizeBottoms = {200, 200, 200, 200};
 vector<int> stockLargeSizeBottoms   = {300, 300, 300, 300};
 vector<int> stockXLargeSizeBottoms  = {300, 300, 300, 300};
 vector<int> stockXXLargeSizeBottoms = {300, 300, 300, 300};
@@ -51,6 +51,95 @@ double total = 0;
 // bools
 bool isAdmin = false;
 bool isEmployer = false;
+
+//NEW FOR RESTOCKS
+vector<int> originalStockXSmallSizeTops = stockXSmallSizeTops;
+vector<int> originalStockSmallSizeTops = stockSmallSizeTops;
+vector<int> originalStockMediumSizeTops = stockMediumSizeTops;
+vector<int> originalStockLargeSizeTops = stockLargeSizeTops;
+vector<int> originalStockXLargeSizeTops = stockXLargeSizeTops;
+vector<int> originalStockXXLargeSizeTops = stockXXLargeSizeTops;
+
+vector<int> originalStockXSmallSizeBottoms = stockXSmallSizeBottoms;
+vector<int> originalStockSmallSizeBottoms = stockSmallSizeBottoms;
+vector<int> originalStockMediumSizeBottoms = stockMediumSizeBottoms;
+vector<int> originalStockLargeSizeBottoms = stockLargeSizeBottoms;
+vector<int> originalStockXLargeSizeBottoms = stockXLargeSizeBottoms;
+vector<int> originalStockXXLargeSizeBottoms = stockXXLargeSizeBottoms;
+
+vector<int> originalStockAccessories = stockAccessories;
+
+
+void restoreStocks() {
+
+    stockXSmallSizeTops = originalStockXSmallSizeTops;
+    stockSmallSizeTops = originalStockSmallSizeTops;
+    stockMediumSizeTops = originalStockMediumSizeTops;
+    stockLargeSizeTops = originalStockLargeSizeTops;
+    stockXLargeSizeTops = originalStockXLargeSizeTops;
+    stockXXLargeSizeTops = originalStockXXLargeSizeTops;
+
+    stockXSmallSizeBottoms = originalStockXSmallSizeBottoms;
+    stockSmallSizeBottoms = originalStockSmallSizeBottoms;
+    stockMediumSizeBottoms = originalStockMediumSizeBottoms;
+    stockLargeSizeBottoms = originalStockLargeSizeBottoms;
+    stockXLargeSizeBottoms = originalStockXLargeSizeBottoms;
+    stockXXLargeSizeBottoms = originalStockXXLargeSizeBottoms;
+
+    stockAccessories = originalStockAccessories;
+
+
+
+     if (selectedItems.empty()) {
+            cout << "Your basket is already empty!\n";
+        } else {
+            // Restore stock and empty the basket
+            for (int i = 0; i < selectedItems.size(); i++) {
+                string item = selectedItems[i];
+                string size = selectedSizes[i];
+                int quantity = selectedQuantities[i];
+
+                // Restore stock for tops
+                if (find(tops.begin(), tops.end(), item) != tops.end()) {
+                    int index = find(tops.begin(), tops.end(), item) - tops.begin();
+                    if (size == "XS") stockXSmallSizeTops[index] += quantity;
+                    else if (size == "S") stockSmallSizeTops[index] += quantity;
+                    else if (size == "M") stockMediumSizeTops[index] += quantity;
+                    else if (size == "L") stockLargeSizeTops[index] += quantity;
+                    else if (size == "XL") stockXLargeSizeTops[index] += quantity;
+                    else if (size == "XXL") stockXXLargeSizeTops[index] += quantity;
+                }
+
+                // Restore stock for bottoms
+                else if (find(bottoms.begin(), bottoms.end(), item) != bottoms.end()) {
+                    int index = find(bottoms.begin(), bottoms.end(), item) - bottoms.begin();
+                    if (size == "XS") stockXSmallSizeBottoms[index] += quantity;
+                    else if (size == "S") stockSmallSizeBottoms[index] += quantity;
+                    else if (size == "M") stockMediumSizeBottoms[index] += quantity;
+                    else if (size == "L") stockLargeSizeBottoms[index] += quantity;
+                    else if (size == "XL") stockXLargeSizeBottoms[index] += quantity;
+                    else if (size == "XXL") stockXXLargeSizeBottoms[index] += quantity;
+                }
+
+                // Restore stock for accessories (no size check)
+                else if (find(accessories.begin(), accessories.end(), item) != accessories.end()) {
+                    int index = find(accessories.begin(), accessories.end(), item) - accessories.begin();
+                    stockAccessories[index] += quantity;
+                }
+            }
+
+            // Clear the basket
+            subTotal = 0;
+            total = 0;
+            selectedItems.clear();
+            selectedSizes.clear();
+            selectedQuantities.clear();
+
+            
+
+            cout << "Your basket has been emptied and stock levels restored.\n";
+        }
+}
 
 int main()
 {
@@ -82,8 +171,8 @@ int main()
         cout << "\n[1] PICK ITEM/S\n";     // Pipili ng items
         cout << "[2] PAY NOW\n";           // magbayad and minus stock
         cout << "[3] CHECK BASKET/CART\n"; // dito pedeng ma-edit pa yung mga napili na
-        cout << "[4] BACK\n";              // Back to main menu - item/s will be stay sa cart
-
+        cout << "[4] RESTORE THE ITEMS\n";              // Back to main menu - item/s will be stay sa cart
+        cout << "[5] BACK\n";
         int choice; // local
         cout << "\n[ENTER INPUT]: ";
         while (!(cin >> choice))
@@ -99,12 +188,12 @@ int main()
           pickItem(category, tops, bottoms, accessories,
               priceXSmallTops, priceSmallTops, priceMediumlTops, priceLargeTops, priceXLargeTops, priceXXLargeTops,
               
-              stockXSmallSizeTops, stockSmallSizeTops, stockMediumlSizeTops, stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
+              stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops, stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
 
               priceXSmallBottoms, priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
               priceXLargeBottoms, priceXXLargeBottoms,
 
-              stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms, stockXLargeSizeBottoms, stockXXLargeSizeBottoms,
+              stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumSizeBottoms, stockLargeSizeBottoms, stockXLargeSizeBottoms, stockXXLargeSizeBottoms,
 
               priceAccessories, stockAccessories,
               
@@ -118,10 +207,23 @@ int main()
         case 3: 
         {
           
-          checkBasket(selectedItems,selectedSizes,selectedQuantities);
+          checkBasket(tops, bottoms, accessories,
+            
+            selectedItems,selectedSizes,selectedQuantities,
+          stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops, 
+
+            stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops, 
+            stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumSizeBottoms, 
+
+            stockLargeSizeBottoms, stockXLargeSizeBottoms, stockXXLargeSizeBottoms, 
+            stockAccessories, subTotal, total);
           break;
         }
         case 4:
+        { 
+          restoreStocks();
+        }
+        case 5:
         {
           loopAgain = false;
           break;
@@ -186,13 +288,13 @@ int main()
                            priceXSmallTops, priceSmallTops, priceMediumlTops, 
                            priceLargeTops, priceXLargeTops, priceXXLargeTops,
 
-                           stockXSmallSizeTops, stockSmallSizeTops, stockMediumlSizeTops, 
+                           stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops, 
                            stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
 
                            priceXSmallBottoms, priceSmallBottoms, priceMediumlBottoms, 
                            priceLargeBottoms, priceXLargeBottoms, priceXXLargeBottoms,
                            
-                           stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumlSizeBottoms, 
+                           stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumSizeBottoms, 
                            stockLargeSizeBottoms, stockXLargeSizeBottoms, stockXXLargeSizeBottoms,
                            
                            priceAccessories, stockAccessories);

@@ -17,6 +17,11 @@
     "span": "cpp",
     "regex": "cpp",
     "valarray": "cpp",
-    "any": "cpp"
+    "any": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "format": "cpp"
   }
 }
