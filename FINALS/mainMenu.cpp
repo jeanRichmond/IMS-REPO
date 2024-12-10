@@ -9,36 +9,36 @@ vector<string> tops = {"Polo", "T-Shirt", "Hoodie"}; // choice = 1
 vector<string> bottoms = {"Short", "Skirt", "Sweat Pants", "Denim"};
 vector<string> accessories = {"Cap", "Handkerchief"};
 // price for tops 
-vector<double> priceXSmallTops   = {250.00, 250.00, 250.00};
-vector<double> priceSmallTops    = {300.00, 300.00, 300.00};
-vector<double> priceMediumlTops  = {350.00, 350.00, 350.00};
-vector<double> priceLargeTops    = {400.00, 400.00, 400.00};
-vector<double> priceXLargeTops   = {500.00, 500.00, 500.00};
-vector<double> priceXXLargeTops  = {600.00, 600.00, 600.00};
+vector<double> priceXSmallTops =   {250.00, 150.00, 200.00};
+vector<double> priceSmallTops =    {260.00, 160.00, 210.00};
+vector<double> priceMediumTops =  {270.00, 170.00, 220.00};
+vector<double> priceLargeTops =    {280.00, 180.00, 230.00};
+vector<double> priceXLargeTops =   {290.00, 190.00, 240.00};
+vector<double> priceXXLargeTops =  {300.00, 200.00, 250.00};
 // stocks for tops
-vector<int> stockXSmallSizeTops   = {100, 100, 100};
-vector<int> stockSmallSizeTops    = {100, 100, 100};
-vector<int> stockMediumSizeTops  = {200, 200, 200};
-vector<int> stockLargeSizeTops    = {300, 300, 300};
-vector<int> stockXLargeSizeTops   = {300, 300, 300};
-vector<int> stockXXLargeSizeTops  = {300, 300, 300};
+vector<int> stockXSmallSizeTops =  {100, 100, 100};
+vector<int> stockSmallSizeTops =   {100, 100, 100};
+vector<int> stockMediumSizeTops = {100, 100, 100};
+vector<int> stockLargeSizeTops =   {100, 100, 100};
+vector<int> stockXLargeSizeTops =  {100, 100, 100};
+vector<int> stockXXLargeSizeTops = {100, 100, 100};
 // price for bottoms
-vector<double> priceXSmallBottoms   = {250.00, 250.00, 250.00, 250.00};
-vector<double> priceSmallBottoms    = {300.00, 300.00, 300.00, 300.00};
-vector<double> priceMediumlBottoms  = {350.00, 350.00, 350.00, 350.00};
-vector<double> priceLargeBottoms    = {400.00, 400.00, 400.00, 400.00};
-vector<double> priceXLargeBottoms   = {500.00, 500.00, 500.00, 500.00};
-vector<double> priceXXLargeBottoms  = {600.00, 600.00, 600.00, 600.00};
+vector<double> priceXSmallBottoms =  {250.00, 200.00, 300.00, 250.00};
+vector<double> priceSmallBottoms =   {255.00, 210.00, 310.00, 260.00};
+vector<double> priceMediumBottoms = {260.00, 220.00, 320.00, 270.00};
+vector<double> priceLargeBottoms =   {265.00, 230.00, 330.00, 280.00};
+vector<double> priceXLargeBottoms =  {270.00, 240.00, 340.00, 290.00};
+vector<double> priceXXLargeBottoms = {275.00, 250.00, 350.00, 300.00};
 // stock for bottoms
-vector<int> stockXSmallSizeBottoms  = {100, 100, 100, 100};
-vector<int> stockSmallSizeBottoms   = {100, 100, 100, 100};
-vector<int> stockMediumSizeBottoms = {200, 200, 200, 200};
-vector<int> stockLargeSizeBottoms   = {300, 300, 300, 300};
-vector<int> stockXLargeSizeBottoms  = {300, 300, 300, 300};
-vector<int> stockXXLargeSizeBottoms = {300, 300, 300, 300};
+vector<int> stockXSmallSizeBottoms =  {100, 100, 100, 100};
+vector<int> stockSmallSizeBottoms =   {100, 100, 100, 100};
+vector<int> stockMediumSizeBottoms = {100, 100, 100, 100};
+vector<int> stockLargeSizeBottoms =   {100, 100, 100, 100};
+vector<int> stockXLargeSizeBottoms =  {100, 100, 100, 100};
+vector<int> stockXXLargeSizeBottoms = {100, 100, 100, 100};
 // price for accessories
-vector<double> priceAccessories = {450.00, 50.00};
-vector<int> stockAccessories    = {100, 100}; // isang price nalang to, since di na applicable si size
+vector<double> priceAccessories = {500.00, 50.00};
+vector<int> stockAccessories = {100, 100}; // isang price nalang to, since di na applicable si size
 
 //vectors for storing new elements
 vector<string> selectedItems;
@@ -51,6 +51,7 @@ double total = 0;
 // bools
 bool isAdmin = false;
 bool isEmployer = false;
+bool isBought = false;
 
 //NEW FOR RESTOCKS
 vector<int> originalStockXSmallSizeTops = stockXSmallSizeTops;
@@ -70,7 +71,7 @@ vector<int> originalStockXXLargeSizeBottoms = stockXXLargeSizeBottoms;
 vector<int> originalStockAccessories = stockAccessories;
 
 
-void restoreStocks() {
+void restoreStocks() { //FOR STOCK REASSIGNMENT
 
     stockXSmallSizeTops = originalStockXSmallSizeTops;
     stockSmallSizeTops = originalStockSmallSizeTops;
@@ -90,9 +91,12 @@ void restoreStocks() {
 
 
 
-     if (selectedItems.empty()) {
+     if (selectedItems.empty() && isBought) {
+    // if(isBought){
             cout << "Your basket is already empty!\n";
+            cout <<isBought <<"if\n";
         } else {
+          cout<< isBought<<"else\n";
             // Restore stock and empty the basket
             for (int i = 0; i < selectedItems.size(); i++) {
                 string item = selectedItems[i];
@@ -134,6 +138,7 @@ void restoreStocks() {
             selectedItems.clear();
             selectedSizes.clear();
             selectedQuantities.clear();
+            selectedPrices.clear();
 
             
 
@@ -171,8 +176,8 @@ int main()
         cout << "\n[1] PICK ITEM/S\n";     // Pipili ng items
         cout << "[2] PAY NOW\n";           // magbayad and minus stock
         cout << "[3] CHECK BASKET/CART\n"; // dito pedeng ma-edit pa yung mga napili na
-        cout << "[4] RESTORE THE ITEMS\n";              // Back to main menu - item/s will be stay sa cart
-        cout << "[5] BACK\n";
+        cout << "[4] BACK\n";              // Back to main menu - item/s will be stay sa cart
+
         int choice; // local
         cout << "\n[ENTER INPUT]: ";
         while (!(cin >> choice))
@@ -186,11 +191,11 @@ int main()
         case 1:
         {
           pickItem(category, tops, bottoms, accessories,
-              priceXSmallTops, priceSmallTops, priceMediumlTops, priceLargeTops, priceXLargeTops, priceXXLargeTops,
+              priceXSmallTops, priceSmallTops, priceMediumTops, priceLargeTops, priceXLargeTops, priceXXLargeTops,
               
               stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops, stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
 
-              priceXSmallBottoms, priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
+              priceXSmallBottoms, priceSmallBottoms, priceMediumBottoms, priceLargeBottoms,
               priceXLargeBottoms, priceXXLargeBottoms,
 
               stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumSizeBottoms, stockLargeSizeBottoms, stockXLargeSizeBottoms, stockXXLargeSizeBottoms,
@@ -202,14 +207,14 @@ int main()
           break;
         }
         case 2:
-          payNow(selectedItems,selectedSizes,selectedQuantities, selectedPrices);
+          payNow(isBought, selectedItems,selectedSizes,selectedQuantities, selectedPrices);
           break;
         case 3: 
         {
           
           checkBasket(tops, bottoms, accessories,
             
-            selectedItems,selectedSizes,selectedQuantities,
+            selectedItems,selectedSizes,selectedQuantities, selectedPrices,
           stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops, 
 
             stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops, 
@@ -219,11 +224,11 @@ int main()
             stockAccessories, subTotal, total);
           break;
         }
+        // case 4:
+        // { 
+        //   restoreStocks();
+        // }
         case 4:
-        { 
-          restoreStocks();
-        }
-        case 5:
         {
           loopAgain = false;
           break;
@@ -254,10 +259,8 @@ int main()
         cout << "=========================================\n\n";
         cout << "[1] ADD PRODUCT\n";
         cout << "[2] DISPLAY INVENTORY\n";
-        cout << "[3] PRODUCT SALES\n";
-        cout << "[4] SALES HISTORY\n";
-        cout << "[5] EDIT INVENTORY\n";
-        cout << "[6] EXIT\n";
+        cout << "[3] EDIT INVENTORY\n";
+        cout << "[4] EXIT\n";
         // while (loopAgain == true)
         cout << "\n[ENTER INPUT]: ";
         //{
@@ -272,26 +275,15 @@ int main()
         {
         case 1:
         {
-          // system("cls");
-          // addProduct(isAdmin, category, tops, bottoms, accessories,
-          //            priceSmallTops, priceMediumlTops, priceLargeTops,
-          //            stockSmallSizeTops, stockMediumlSizeTops, stockLargeSizeTops,
-          //            priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
-          //            stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms,
-          //            priceAccessories, stockAccessories);
-          // break;
-        }
-        case 2: // thats a lot of crap
-        {
-          system("cls");
-          displayInventory(tops, bottoms, accessories,
-                           priceXSmallTops, priceSmallTops, priceMediumlTops, 
+         
+          addProduct(isAdmin, category, tops, bottoms, accessories,
+                     priceXSmallTops, priceSmallTops, priceMediumTops, 
                            priceLargeTops, priceXLargeTops, priceXXLargeTops,
 
                            stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops, 
                            stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
 
-                           priceXSmallBottoms, priceSmallBottoms, priceMediumlBottoms, 
+                           priceXSmallBottoms, priceSmallBottoms, priceMediumBottoms, 
                            priceLargeBottoms, priceXLargeBottoms, priceXXLargeBottoms,
                            
                            stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumSizeBottoms, 
@@ -300,24 +292,45 @@ int main()
                            priceAccessories, stockAccessories);
           break;
         }
-        case 3:
-          productSales();
-          
+        case 2: // thats a lot of crap
+        {
+          system("cls");
+          displayInventory(tops, bottoms, accessories,
+                           priceXSmallTops, priceSmallTops, priceMediumTops, 
+                           priceLargeTops, priceXLargeTops, priceXXLargeTops,
 
+                           stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops, 
+                           stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
+
+                           priceXSmallBottoms, priceSmallBottoms, priceMediumBottoms, 
+                           priceLargeBottoms, priceXLargeBottoms, priceXXLargeBottoms,
+                           
+                           stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumSizeBottoms, 
+                           stockLargeSizeBottoms, stockXLargeSizeBottoms, stockXXLargeSizeBottoms,
+                           
+                           priceAccessories, stockAccessories);
           break;
+        }
+
+case 3:
+        {
+          update(isAdmin, tops, bottoms, accessories,
+                           priceXSmallTops, priceSmallTops, priceMediumTops,
+                           priceLargeTops, priceXLargeTops, priceXXLargeTops,
+
+                           stockXSmallSizeTops, stockSmallSizeTops, stockMediumSizeTops,
+                           stockLargeSizeTops, stockXLargeSizeTops, stockXXLargeSizeTops,
+
+                           priceXSmallBottoms, priceSmallBottoms, priceMediumBottoms,
+                           priceLargeBottoms, priceXLargeBottoms, priceXXLargeBottoms,
+
+                           stockXSmallSizeBottoms, stockSmallSizeBottoms, stockMediumSizeBottoms,
+                           stockLargeSizeBottoms, stockXLargeSizeBottoms, stockXXLargeSizeBottoms,
+
+                           priceAccessories, stockAccessories);
+          break;
+        }
         case 4:
-          salesHistory();
-          break;
-        case 5:
-                   // edit(tops, bottoms, accessories,
-          //      priceSmallTops, priceMediumlTops, priceLargeTops,
-          //      stockSmallSizeTops, stockMediumlSizeTops, stockLargeSizeTops,
-          //      priceSmallBottoms, priceMediumlBottoms, priceLargeBottoms,
-          //      stockSmallSizeBottoms, stockMediumlSizeBottoms, stockLargeSizeBottoms,
-          //      priceAccessories, stockAccessories);
-          // break;
-          break;
-        case 6:
         {
           loopAgain = false;
           isAdmin = false;

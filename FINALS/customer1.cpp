@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 #include <iomanip>
 #include <algorithm>
@@ -19,8 +19,8 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
  vector<int>& stx4, vector<int>& st4, vector<int>& st5, vector<int>& st6,
  vector<int>& stx6, vector<int>& stxx6,
 
- vector<double> pr7,
- vector<int> st7,
+ vector<double>& pr7,
+ vector<int>& st7,
  
         double &subTotal, double &total, 
          vector<string>& selectedItems,
@@ -31,7 +31,7 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
     bool exitBool = false;
     // string exit; //for you
 
-    string choice;
+    int choice;
    
 
     while (!exitBool) {
@@ -44,12 +44,19 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
          cout << "[4] BACK\n";
     cout << endl;
 
+
     cout << "Enter your choice: ";
+    while (!(cin >> choice))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
    
-    cin >> choice;
+    
     cout << endl;
 
-    if (choice == "1" ) { //tops
+    if (choice == 1 ) { //tops
         int choice1;
            
            // c out << j + 1 << ". " << t[j]  << " " << "(Extra-Small: " << endl;
@@ -87,7 +94,13 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
         cout << endl;
 
         cout << "Enter: ";
-        cin >> choice1;
+        while (!(cin >> choice1))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+
         
         for(int i = 0; i < t.size(); i++){
             if((choice1 - 1) == i){
@@ -95,11 +108,24 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
                 cout<<"\nWhat size: \n\n1.Extra-Small\n2.Small\n3.Medium\n4.Large\n5.X-Large\n6.XX-Large";
                 cout<<"\n\nInput: "; 
                 int size1;
-                cin >> size1;
+            
+                while (!(cin >> size1))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+   ;
 
                 int quantity;
                 cout << "\nEnter Quantity: ";
-                cin >> quantity;
+                while (!(cin >> quantity))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+   
 
                 string sizeStr;
                 
@@ -217,7 +243,7 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
     
 
     
-    } else if (choice == "2") { // bottoms
+    } else if (choice == 2) { // bottoms
         int choice2;
 
         cout << "BOTTOMS:\n" << endl;
@@ -250,18 +276,35 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
         cout << endl;
         
         cout << "Enter: ";
-        cin >> choice2;
+        while (!(cin >> choice2))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+   
         
         for(int i = 0; i < b.size(); i++){
             if((choice2 - 1) == i){
                 cout<<"\nWhat size: \n\n1.Extra-Small\n2.Small\n3.Medium\n4.Large\n5.X-Large\n6.XX-Large";
                 cout<<"\n\nInput: "; 
                 int size2;
-                cin >> size2;
-
+while (!(cin >> size2))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+   
                 int quantity;
                 cout << "\nEnter Quantity: ";
-                cin >> quantity;
+               while (!(cin >> quantity))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+   
                   string sizeStr;
                 
                 if (size2 == 1) { //for small
@@ -373,7 +416,7 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
         
         
 
-    } else if (choice == "3") {
+    } else if (choice == 3) {
         int choice3;
 
         cout << "Accessories:\n" << endl;
@@ -389,7 +432,13 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
         cout << endl;
 
         cout << "Enter: ";
-        cin >> choice3;
+      while (!(cin >> choice3))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+   
         
         for(int i = 0; i < a.size(); i++){
             if((choice3 - 1) == i){
@@ -400,11 +449,17 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
 
                 int quantity;
                 cout << "\nEnter Quantity: ";
-                cin >> quantity;
+                while (!(cin >> quantity))
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+   
                 string sizeStr;
                 
 
-                // if (size3 == 1) { 
+                //ACCESSORIES
                      if (quantity > st7[choice3 -1]) {
                         cout << "Not enough stocks.\n";
                     } else if (quantity <= 0) {
@@ -414,21 +469,24 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
                     subTotal = (pr7[choice3 -1] * quantity);
                     (st7[choice3 -1] -= quantity); 
                     total += subTotal;
-                    cout << t[choice3 -1] << " | " << "Small" << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
-                    }
-                // } 
-
+                    cout << a[choice3 -1] << " | " << "Quantity: "<< quantity << " |" << " Price: " << subTotal <<endl;
             selectedItems.push_back(a[choice3 - 1]);
             selectedSizes.push_back(sizeStr);
             selectedQuantities.push_back(quantity);
             selectedPrices.push_back(subTotal);
+                    }
+                // } 
+
+
             }
         }
-    } else if (choice == "4") {
+    } else if (choice == 4) {
         exitBool = true;
         break;
     } else {
         cout << "\nInvalid po \n";
+        // exitBool = true;
+        break;
     }
 }
 }
@@ -437,7 +495,10 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
 
 
 
-void payNow (vector<string>& selectedItems,  
+void payNow (
+             bool& isBought,
+    
+             vector<string>& selectedItems,  
              vector<string>& selectedSizes, 
              vector<int>& selectedQuantities,  
              vector<double>& selectedPrices) {
@@ -472,21 +533,32 @@ void payNow (vector<string>& selectedItems,
              cout << "\nTotal Amount: " << total << endl;
         double money;
         
-        while (true) {
+    
              cout << "Enter Your Money: ";
-             cin >> money;
-             if (money <= 0) {
-                cout << "\nInvalid input...\n";
-             } else if (money < total) {
+           while (!(cin >> money ) || money < 0)
+        {
+            cout << "\n[ERROR]: (NUMBER ONLY)\n\nEnter Your Money: ";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+             if (money < total) {
                 cout << "\nInsufficient Money! You need " <<  total - money << " more.\n";
              } else if (money == total) {
                 cout << "You have no change, Thanks for purchasing.\n\n";
-                break;
+                isBought = true;
+            selectedItems.clear();
+            selectedSizes.clear();
+            selectedQuantities.clear();
+            selectedPrices.clear();
              } else {
                 cout << "Your change is: " << money - total <<", Thanks for purchasing."<< endl<<endl;
-                break;
+                isBought = true;
+            selectedItems.clear();
+            selectedSizes.clear();
+            selectedQuantities.clear();
+            selectedPrices.clear();
              }
-        }
+        
    
     }
 
@@ -497,7 +569,7 @@ void checkBasket (vector<string> tops, vector<string> bottoms, vector<string> ac
     
     vector<string>& selectedItems,  
              vector<string>& selectedSizes, 
-             vector<int>& selectedQuantities,
+             vector<int>& selectedQuantities, vector<double>& selectedPrices,
              
                  vector<int>& stockXSmallSizeTops,
                  vector<int>& stockSmallSizeTops,
@@ -514,15 +586,16 @@ void checkBasket (vector<string> tops, vector<string> bottoms, vector<string> ac
                  vector<int>& stockAccessories,
                  
                  double& subTotal,double& total) {
-
+    
+    cout << "=================";
     cout << "\n---BASKET---\n" << endl;
 
     string basketChoice;
 
     while (true) {
     cout << "\n[1] SHOW ITEM/S\n";
-    cout << "[2] CANCEL / EMPTY BASKET\n";
-    cout << "[3] BACK\n";
+    // cout << "[2] CANCEL / EMPTY BASKET\n";
+    cout << "[2] BACK\n";
     cout << "Enter your choice: ";
     cin >> basketChoice;
     if (basketChoice == "1") {
@@ -537,58 +610,60 @@ void checkBasket (vector<string> tops, vector<string> bottoms, vector<string> ac
      }
     }
 
-   } else if (basketChoice == "2") {
-        if (selectedItems.empty()) {
-            cout << "Your basket is already empty!\n";
-        } else {
-            // Restore stock and empty the basket
-            for (int i = 0; i < selectedItems.size(); i++) {
-                string item = selectedItems[i];
-                string size = selectedSizes[i];
-                int quantity = selectedQuantities[i];
+//    } else if (basketChoice == "2") {
+//         if (selectedItems.empty()) {
+//             cout << "Your basket is already empty!\n";
+//         } else {
+//             // Restore stock and empty the basket
+//             for (int i = 0; i < selectedItems.size(); i++) {
+//                 string item = selectedItems[i];
+//                 string size = selectedSizes[i];
+//                 int quantity = selectedQuantities[i];
 
-                // Restore stock for tops
-                if (find(tops.begin(), tops.end(), item) != tops.end()) {
-                    int index = find(tops.begin(), tops.end(), item) - tops.begin();
-                    if (size == "XS") stockXSmallSizeTops[index] += quantity;
-                    else if (size == "S") stockSmallSizeTops[index] += quantity;
-                    else if (size == "M") stockMediumSizeTops[index] += quantity;
-                    else if (size == "L") stockLargeSizeTops[index] += quantity;
-                    else if (size == "XL") stockXLargeSizeTops[index] += quantity;
-                    else if (size == "XXL") stockXXLargeSizeTops[index] += quantity;
-                }
+//                 // Restore stock for tops
+//                 if (find(tops.begin(), tops.end(), item) != tops.end()) {
+//                     int index = find(tops.begin(), tops.end(), item) - tops.begin();
+//                     if (size == "XS") stockXSmallSizeTops[index] += quantity;
+//                     else if (size == "S") stockSmallSizeTops[index] += quantity;
+//                     else if (size == "M") stockMediumSizeTops[index] += quantity;
+//                     else if (size == "L") stockLargeSizeTops[index] += quantity;
+//                     else if (size == "XL") stockXLargeSizeTops[index] += quantity;
+//                     else if (size == "XXL") stockXXLargeSizeTops[index] += quantity;
+//                 }
 
-                // Restore stock for bottoms
-                else if (find(bottoms.begin(), bottoms.end(), item) != bottoms.end()) {
-                    int index = find(bottoms.begin(), bottoms.end(), item) - bottoms.begin();
-                    if (size == "XS") stockXSmallSizeBottoms[index] += quantity;
-                    else if (size == "S") stockSmallSizeBottoms[index] += quantity;
-                    else if (size == "M") stockMediumSizeBottoms[index] += quantity;
-                    else if (size == "L") stockLargeSizeBottoms[index] += quantity;
-                    else if (size == "XL") stockXLargeSizeBottoms[index] += quantity;
-                    else if (size == "XXL") stockXXLargeSizeBottoms[index] += quantity;
-                }
+//                 // Restore stock for bottoms
+//                 else if (find(bottoms.begin(), bottoms.end(), item) != bottoms.end()) {
+//                     int index = find(bottoms.begin(), bottoms.end(), item) - bottoms.begin();
+//                     if (size == "XS") stockXSmallSizeBottoms[index] += quantity;
+//                     else if (size == "S") stockSmallSizeBottoms[index] += quantity;
+//                     else if (size == "M") stockMediumSizeBottoms[index] += quantity;
+//                     else if (size == "L") stockLargeSizeBottoms[index] += quantity;
+//                     else if (size == "XL") stockXLargeSizeBottoms[index] += quantity;
+//                     else if (size == "XXL") stockXXLargeSizeBottoms[index] += quantity;
+//                 }
 
-                // Restore stock for accessories (no size check)
-                else if (find(accessories.begin(), accessories.end(), item) != accessories.end()) {
-                    int index = find(accessories.begin(), accessories.end(), item) - accessories.begin();
-                    stockAccessories[index] += quantity;
-                }
-            }
-            // Clear the basket
+//                 // Restore stock for accessories (no size check)
+//                 else if (find(accessories.begin(), accessories.end(), item) != accessories.end()) {
+//                     int index = find(accessories.begin(), accessories.end(), item) - accessories.begin();
+//                     stockAccessories[index] += quantity;
+//                 }
+//             }
+//             // Clear the basket
 
-            selectedItems.clear();
-            selectedSizes.clear();
-            selectedQuantities.clear();
+//             selectedItems.clear();
+//             selectedSizes.clear();
+//             selectedQuantities.clear();
+//             selectedPrices.clear();
 
-            subTotal = 0;
-            total = 0;
+
+//             subTotal = 0;
+//             total = 0;
 
             
 
-            cout << "Your basket has been emptied and stock levels restored.\n";
-        }
-    } else if (basketChoice == "3") {
+//             cout << "Your basket has been emptied and stock levels restored.\n";
+//         }
+    } else if (basketChoice == "2") {
         break;
     } else {
         cout << "[ERROR]: Invalid choice.\n";
