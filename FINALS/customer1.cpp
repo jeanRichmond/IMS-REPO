@@ -284,12 +284,12 @@ void pickItem(string category[], vector<string> t, vector<string> b, vector<stri
         }
    
         
-        for(int i = 0; i < b.size(); i++){
+        for (int i = 0; i < b.size(); i++) {
             if((choice2 - 1) == i){
                 cout<<"\nWhat size: \n\n1.Extra-Small\n2.Small\n3.Medium\n4.Large\n5.X-Large\n6.XX-Large";
                 cout<<"\n\nInput: "; 
                 int size2;
-while (!(cin >> size2))
+                while (!(cin >> size2))
         {
             cout << "\n[ERROR]: (NUMBER ONLY)\n\n[ENTER AGAIN]: ";
             cin.clear();
@@ -497,7 +497,7 @@ while (!(cin >> size2))
 
 void payNow (
              bool& isBought,
-    
+            
              vector<string>& selectedItems,  
              vector<string>& selectedSizes, 
              vector<int>& selectedQuantities,  
@@ -520,16 +520,13 @@ void payNow (
          cout << endl;
     //rinig ba ko 
     // Loop through the selected items and display their details
-    for (int i = 0; i < selectedItems.size(); i++) {
-        cout << left << setw(20) << selectedItems[i] 
-             << setw(15) << selectedSizes[i]
-             << setw(15) << selectedPrices[i] / selectedQuantities[i]
-             << setw(15) << selectedQuantities[i]
-             << setw(15) << fixed << setprecision(2) << selectedPrices[i] 
-             << endl;
-             total += selectedPrices[i];
-    }   
-             
+    // mising for loop
+ for (int i = 0; i < selectedItems.size(); i++) {
+        cout << "Item: " << selectedItems.at(i) 
+             << " | Size: " << selectedSizes.at(i)
+             << " | Quantity: " << selectedQuantities.at(i) 
+             << " | Subtotal:" <<  endl;
+     }
              cout << "\nTotal Amount: " << total << endl;
         double money;
         
